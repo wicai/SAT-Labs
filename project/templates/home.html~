@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  <style>
+    #map {
+      width: 800px;
+      height: 500px;
+      border-style:solid;
+      border-width:5px;
+    }
+    body  {
+      background-color:#d0e4fe;
+    }
+    h1  {
+      color:orange;
+      text-align:center;
+      font-size:36px;
+    }
+    h2  {
+      color:blue;
+      text-alight:center;
+      font-size:24px;
+    }
+    p {
+      font-family:"Comic Sans";
+      font-size:18px;
+    color:black;
+    }
+  </style>
+</head>
+<body>
+
+<h1> Weather it Matters <h1>
+<h2> <center> A Weather/Mood Mapper by William Cai and Haohang Xu </center> </h2>
+
+<center><FORM action="/add/" method="post">{% csrf_token %}
+Longitude (-180 to 180): <input type="text" name="longitude">  
+Latitude (-180 to 180): <input type="text" name="latitude">
+<INPUT type="submit" value="Submit"> 
+</FORM>
+
+  <p> Enter a longitude and latitude and our app will calcuate a happiness coefficient (using data from Twitter),  a weather coefficient <br> (using data from Weather Underground), and a ratio between the two and map it onto an interactive map.</p>
+</center>
+
+</body>
+</html>
+
