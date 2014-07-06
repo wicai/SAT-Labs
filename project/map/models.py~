@@ -1,5 +1,5 @@
 from django.db import models
-import os
+
 
 #use get_image_path to get images
 def get_image_path(instance, filename):
@@ -77,6 +77,10 @@ class Writing_Effective_Q(models.Model): #these "test correctness and effectiven
     c = models.CharField(max_length = 100)
     d = models.CharField(max_length = 100)
 
+class Writing_Effective_A(models.Model): 
+    q = models.ForeignKey(Writing_Effective_Q)
+    answer = models.IntegerField()
+
 class Writing_Grammar_Q(models.Model): #these "test your ability to recognize grammar and usage errors."
     question = models.CharField(max_length = 600)
     a_underline_start = models.IntegerField()
@@ -90,3 +94,6 @@ class Writing_Grammar_Q(models.Model): #these "test your ability to recognize gr
     e_underline_start = models.IntegerField()
     e_underline_end = models.IntegerField()
 
+class Writing_Grammar_A(models.Model):
+    q = models.ForeignKey(Writing_Grammar_Q)
+    answer = models.IntegerField()
