@@ -11,22 +11,20 @@ from project.map.models import Math_Pred_Item as MPI
 from project.map.models import User 
 from project.map.models import Answered_Math_Q as AMQ
 
-
 #given a model, returns all its fields
 def get_model_fields(model):
     return model._meta.fields
 
 #load the array from the databases
 
-def train():
-    
+def train():    
     problem_list = MQP.objects.all()
     npr = problem_list.count()  #dangerously close to np = numpy
     nx = len(get_model_fields(MQP)) + 1 #number of features we are checking w the matrix + 1 for bias
     user_list = User.objects.all()
     nu = u_list.count()
     # create matrices
-    r = np.zero(npr * nu).reshape(npr, nu) #question answered?
+    r = np.zero(npr * nu).reshape(npr, nu) #question answered is 1, not answered is 0
     y = np.zero(npr * nu).reshape(npr, nu) - 1
     prob_feature = np.zero(nx * npr).reshape(nx, npr)
     theta = np.random.random((nx, nu))
@@ -52,7 +50,11 @@ def train():
             y[proc.col_num, i] = a.correct
             r[proc.col_num, i] = 1
         i++
-    
+    #normalize y
+    mu = np.reshape(np.mean(y,1),(npr,1))
+    y -= mu #mean normalizationizedered!
+
+
     #theta is already randomized and initialized
     #time to train theta
     theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,lamb))  #magically optimize theta 
@@ -66,7 +68,7 @@ def train():
         for ii in range(0, nu):
             col = MTI.objects.create(col = ii, val = theta[i,ii], row = theta_row)
             
-    pred = np.tranpose(np.tranpose(theta) * X) #user predictions
+    pred = np.tranpose(np.tranpose(theta) * X) + mu #user predictions
     #store pred
     if (MP.objects.all().count() != 0): #gotta remove everything that's there
         for a in MP.objects.all():
@@ -86,7 +88,7 @@ def cost(theta, y, prob_feature, nu, npr, nx, R, lamb):
 #returns J, the cost, and grad, the gradient
 
 #compute J
-    J = 1 / 2 * np.sum(np.power(np.multiply(R, (np.dot(np.tranpose(prob_feature)*(theta)) - Y)),2))
+    J = 1 / 2 * np.sum(np.power(np.multiply(R, ((np.dot(np.tranpose(prob_feature)*(theta))+mu) - Y)),2))
 #add regularization
     J += lamb/2 * np.sum(np.power(theta,2))
 #compute grad

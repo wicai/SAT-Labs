@@ -5,6 +5,9 @@ from project.map.models import Math_Q_Processed as MQP
 from project.map.models import Math_Theta as MT
 from project.map.models import Math_Theta_Row as MTR
 from project.map.models import Math_Theta_Item as MTI
+from project.map.models import Math_Pred as MP
+from project.map.models import Math_Pred_Row as MPR
+from project.map.models import Math_Pred_Item as MPI
 from project.map.models import User 
 from project.map.models import Answered_Math_Q as AMQ
 
@@ -53,9 +56,26 @@ def train():
     #theta is already randomized and initialized
     #time to train theta
     theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,lamb))  #magically optimize theta 
-    
-    pred = np.tranpose(np.tranpose(theta) * X)
+    #store theta
+    if (MT.objects.all().count() != 0): #gotta remove everything that's there
+        for a in MT.objects.all():
+            a.delete()
+    mt = MT.objects.create() #create the new Math_Theta
+    for i in range(0, nx): #for each row of theta
+        theta_row = MTR.objects.create(row = i, matrix = mt) #create a Math_Theta_Row
+        for ii in range(0, nu):
+            col = MTI.objects.create(col = ii, val = theta[i,ii], row = theta_row)
+            
+    pred = np.tranpose(np.tranpose(theta) * X) #user predictions
     #store pred
+    if (MP.objects.all().count() != 0): #gotta remove everything that's there
+        for a in MP.objects.all():
+            a.delete()
+    mp = MP.objects.create() #create the new Math_Pred
+    for i in range(0, npr): #for each row of theta
+        pred_row = MPR.objects.create(row = i, matrix = mp) #create a Math_Pred_Row
+        for ii in range(0, nu):
+            col = MPI.objects.create(col = ii, val = theta[i,ii], row = pred_row)
 
 def cost(theta, y, prob_feature, nu, npr, nx, R, lamb):
 #gives the cost of using theta as the params, given prob_features and y.
