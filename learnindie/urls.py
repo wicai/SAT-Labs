@@ -7,5 +7,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'learnindie.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    (r'^admin/', include(admin.site.urls)),
+    (r'^$', 'machlearn.views.home'),
 )
