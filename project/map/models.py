@@ -10,10 +10,12 @@ def get_image_path(instance, filename):
 #Models defined here:
 #USER DATA DEFINED HERE
 class User(models.Model):
-    username = models.charField(models.Model):
+    col_num = models.IntegerField()
+    username = models.charField(models.Model)
+    
     
 class Answered_Math_Q(models.Model):
-    math_questions = models.ForeignKey(Math_Q)
+    unanswered_q = models.OneToOneField(Math_Q)
     user = models.ForeignKey(User)
     correct = models.IntegerField() # 0 is wrong, 1 is correct
 
@@ -33,6 +35,8 @@ class Math_Theta_Item(models.Model):
 
 #PROCESSED QUESTIONS:
 class Math_Q_Processed(models.Model):
+    orig_q = models.OneToOneField(Math_Q)
+    col_num = models.IntegerField()
     length = models.IntegerField()
     num_numbers = models.IntegerField()
 

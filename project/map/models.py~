@@ -5,7 +5,41 @@ from django.db import models
 def get_image_path(instance, filename):
     return os.path.join('photos', str(instance.id), filename)
 
+
+
 #Models defined here:
+#USER DATA DEFINED HERE
+class User(models.Model):
+    col_num = models.IntegerField()
+    username = models.charField(models.Model)
+    
+class Answered_Math_Q(models.Model):
+    unanswered_q = models.OneToOneField(Math_Q)
+    user = models.ForeignKey(User)
+    correct = models.IntegerField() # 0 is wrong, 1 is correct
+
+#NEURAL NETWORKS DEFINED HERE
+
+#one layer theta for neural network for math
+class Math_Theta(models.Model):
+
+class Math_Theta_Row(models.Model):
+    row = models.IntegerField()
+    matrix = models.ForeignKey(Math_Theta_1)
+
+class Math_Theta_Item(models.Model):
+    row = models.ForeignKey(Math_Theta_1_row)
+    col = models.IntegerField()
+    val = models.FloatField()
+
+#PROCESSED QUESTIONS:
+class Math_Q_Processed(models.Model):
+    orig_q = models.OneToOneField(Math_Q)
+    row_num = models.IntegerField()
+    length = models.IntegerField()
+    num_numbers = models.IntegerField()
+
+#RAW QUESTIONS:
 class Math_Q(models.Model): #A math question.  If it has a diagram, can be found in Math_Diagram, uses instance of Math_Q as foreign key
     question = models.CharField(max_length = 600)
     diagram_exists = models.BooleanField();

@@ -1,0 +1,41 @@
+import numpy as np
+from project.map.models import Math_Q_Processed as MQP
+from project.map.models import Math_Theta as MT
+from project.map.models import Math_Theta_Row as MTR
+from project.map.models import Math_Theta_Item as MTI
+from project.map.models import User 
+from project.map.models import Answered_Math_Q as AMQ
+
+#given a model, returns all its fields
+def get_model_fields(model):
+    return model._meta.fields
+
+#load the array from the databases
+
+def train():
+    #Our matrix X, the training example is n x nf
+    problem_list = MQP.objects.all()
+    n = problem_list.count() 
+    nf = len(get_model_fields(MQP)) #number of features we are checking w the matrix
+    x = np.zero(n * nu).reshape(n, nf)
+    i = 0
+    for p in problem_list:
+        x[i, 0] = p.length
+        x[i, 1] = p.num_num
+        p.row_num = i
+    #Matrix Y, each row is a problem and each column is a user, so n x nu
+    u_list = User.objects.all()
+    nu = u_list.count()
+    y = np.zero(shape = (n, nu))
+    i = 0
+    for u in user_list:
+        u.col_num = i
+        a_list = AMQ.objects.filter(user = u)
+        for a in a_list:
+            proc = MQP.objects.filter(orig_q = a.unanswered_q)
+            y[proc.row_num, i] = a.correct 
+        i++
+    #matrix theta, nf x nu
+    theta = np.zero(shape = (nf, nu))
+    
+

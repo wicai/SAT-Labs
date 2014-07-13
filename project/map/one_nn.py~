@@ -1,4 +1,0 @@
-import numpy as np
-from project.map.models import Math_Q_Processed as mqp
-#load the array from the databases
-
