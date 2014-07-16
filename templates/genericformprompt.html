@@ -1,0 +1,16 @@
+{% extends "base_site.html" %}
+
+<!DOCTYPE html>
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<body>
+<h2> {{description}} </h2>
+<form action="{{action}}" method="POST" enctype="{{enctype}}">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+</html>
+{% endblock %}

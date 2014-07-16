@@ -8,5 +8,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     (r'^admin/', include(admin.site.urls)),
+
     (r'^$', 'machlearn.views.home'),
+    (r'^machlearn/parsePDF/$', 'machlearn.views.parse_PDF'),
 )
