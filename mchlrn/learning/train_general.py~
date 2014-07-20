@@ -1,22 +1,26 @@
 #TODO: figure out gradient 
+#public libraries
 import numpy as np
 from scipy.optimize import fmin_bfgs
-from project.map.models import Math_Q_Processed as MQP
-from project.map.models import Math_Theta as MT
-from project.map.models import Math_Theta_Row as MTR
-from project.map.models import Math_Theta_Item as MTI
-from project.map.models import Math_Pred as MP
-from project.map.models import Math_Pred_Row as MPR
-from project.map.models import Math_Pred_Item as MPI
-from project.map.models import User 
-from project.map.models import Answered_Math_Q as AMQ
+#learning library
+from mchlrn.learning.cost import cost
+from mchlrn.learning.theta_gradient import gradient
+#models
+from mchlrn.models import Math_Q_Processed as MQP
+from mchlrn.models import Math_Theta as MT
+from mchlrn.models import Math_Theta_Row as MTR
+from mchlrn.models import Math_Theta_Item as MTI
+from mchlrn.models import Math_Pred as MP
+from mchlrn.models import Math_Pred_Row as MPR
+from mchlrn.models import Math_Pred_Item as MPI
+from mchlrn.models import User 
+from mchlrn.models import Answered_Math_Q as AMQ
 
 #given a model, returns all its fields
 def get_model_fields(model):
     return model._meta.fields
 
 #load the array from the databases
-
 def train():    
     problem_list = MQP.objects.all()
     npr = problem_list.count()  #dangerously close to np = numpy
@@ -79,26 +83,6 @@ def train():
         for ii in range(0, nu):
             col = MPI.objects.create(col = ii, val = theta[i,ii], row = pred_row)
 
-def cost(theta, y, prob_feature, nu, npr, nx, R, lamb):
-#gives the cost of using theta as the params, given prob_features and y.
-#theta is nx x nu
-#prob_features is nx x npr
-#X is  npr x nx
-#y is npr x nu
-#returns J, the cost, and grad, the gradient
-
-#compute J
-    J = 1 / 2 * np.sum(np.power(np.multiply(R, ((np.dot(np.tranpose(prob_feature)*(theta))+mu) - Y)),2))
-#add regularization
-    J += lamb/2 * np.sum(np.power(theta,2))
-#compute grad
-
-def gradient(theta,y,prob_feature,nu,npr,nx,R,lamb):
-    theta_grad = np.tranpose(np.tranpose(np.multiply(R, (np.dot(np.tranpose(prob_features)*theta) - Y ))) * np.tranpose(prob_feature))
-#that may or may not be correct lol
-#add regularization
-    theta_grad += lamb * theta
-    return theta_grad
     
               
 
