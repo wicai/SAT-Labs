@@ -1,0 +1,2738 @@
+ul#moreInformationFees {
+    list-style-type:none;
+}
+
+.feeWaiversList .panel {
+    display: none;
+}
+.feeWaiversList .panel.current{
+    display: block;
+}
+
+.fullWidth {
+    width:100%;
+}
+
+.skillsInsightBlock .numCount{
+    width:60px;
+    font:bold 40px helvetica;
+    float: left;
+    display:block;
+}
+
+.skillsInsightBlock .reviewAnswerListContent{
+    float: left;
+    width:605px;
+}
+
+.skillsInsightBlock .skill {
+    position:relative;
+    width:100%;
+    overflow: hidden;
+    margin:0 0 10px 0;
+    padding:0 0 10px 0;
+}
+
+.iconMarginMain{
+    margin-bottom:40px;
+}
+	.fontAlt, .fontAlt a {
+	    font:normal 13px Georgia;
+	}
+	
+	.tableMain{
+	    border-collapse: separate;
+	    vertical-align: top;
+	    empty-cells:show;
+	}
+
+	.tableMain .tableData tr:nth-child(even) {
+            background: #eee;
+        }
+	.tableMain .tableData tr:nth-child(odd) {
+            background: #fff
+        }
+	
+	.tableMain td {
+		padding:6px;
+	}
+	
+	.toolTipMain{
+	    z-index:9999999;
+	}
+	
+	#buyTheOfficialStudyGuideTestsLink { display:inline; position:static; float:none; }
+	
+	#testsAvailableCol { width:182px; }
+	
+	#testsAvailableCol a,#testsAvailableCol nobr{ font:normal 12px Georgia }
+
+	#lateRegistrationCol {
+	    border-bottom:1px #fff solid;
+	}
+	
+	#addlProcessingFeeCol, #byPhoneServFeeCol { width:90px; }
+	
+	#regionName{ width:150px; }
+	#countriesInRegion{ width:470px; }
+	#intRegionFee{ width:60px; }
+
+	.headerRow a{
+	    color:#fff;
+	    display:inline;
+	}
+	
+	.headerRow > *{
+            background:#999;
+	    font:bold 14px Georgia,arial;
+            height:38px;
+	    vertical-align: middle;
+            border:none;
+            border-right:1px solid #fff;
+            color:#fff;
+            padding:0;
+            text-align: center;
+	    position: static;
+	}
+	
+	.headerRow > *.last{
+	    border-right:1px #999 solid;
+	}	
+		
+	.colWidthMain {
+            width:130px;
+	}
+	
+	.colWidthSec {
+	    width:108px;
+	}
+	
+	.colWidthTer {
+            width:170px;
+	}
+	
+	.colWidthQua {
+            width:275px;
+	}
+	
+	.rowHeightMain {
+            height:85px;
+	}
+	
+	.rowHeightMain td{
+            vertical-align: top;
+	}
+	
+	.toolTipMain a {
+	    color:#0099FF;
+	}
+	
+	.toolTipMain{
+            display: inline-block;
+	    width:14px;
+	    height:14px;
+            overflow: visible;
+            position: relative;
+	}
+
+	.toolTipMain .tipContainer {
+	    padding:10px 10px 30px 10px;
+	    position:absolute;
+            top: -97px;
+            left: -100px;
+            z-index: 3;
+	    display:none;
+	    background: transparent;
+	}
+	
+	.toolTipMain .tip {
+            background: #FFFFFF;
+            border: 1px solid #d1d1d1;
+            color: #000000;
+            font: 13px arial;
+            padding: 10px;
+            position: relative;
+            text-align: left;
+            width: 215px;
+            
+	}
+
+	.toolTipMain:hover .tipContainer{
+	    display: block;
+	}
+
+	.toolTipMain .toolTipTail {
+            bottom: -10px;
+            left: 88px;
+            position: absolute;
+	}
+
+
+
+/* The College Board */
+/* SAT Site styles */
+/* Authors: Nicholas Porochnia, Alan Byers, Terrence Lee, Steve Liu, David Cho, Peter Thomatos */
+/*************************************************************************/
+/*  LAST MODIFIED: Larry Sharpe
+/*************************************************************************/
+/* CB GLOBALS */
+/*************************************************************************/
+/* Reset resets! More trouble then worth? */
+
+/***********************/
+/* This code neds to be removeed after a server side implementation has been instituted. */
+#mainBody #mainHeaders {
+    display: none;
+}
+/***********************/
+
+#leftColumn .myOrganizerModule .myOrgChangeModal .roundies{
+    background:#ffffff;
+}
+
+.myOrgPopup{
+    z-index:9999999;
+}
+
+.satOverlay{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2999;
+    opacity: 0.4;
+    filter: alpha(opacity = 40);
+    background-color: #000000;    
+}
+
+.modalCloseBtn{
+    background: url("/img/btnCloseCBMModa.png") no-repeat scroll 0 0 transparent;
+    height: 14px;
+    position: absolute;
+    right: 10px;
+    text-indent: -9999px;
+    top: 10px;
+    width: 14px;
+    z-index: 10;
+    cursor:pointer;
+}
+
+.modalCloseBtnAlt:hover{
+    text-decoration:none;
+}
+.modalCloseBtnAlt{
+    color:#666666;
+    text-decoration:none;
+    font:normal 12px/20px arial;
+    cursor:pointer;
+    overflow: hidden;
+}
+
+.modalCloseBtnAlt .modalTxt{
+    margin-right:5px;
+    float:left;
+    text-decoration:none;
+}
+
+.modalCloseBtnAlt .modalX{
+    float:left;
+    font:normal 20px/20px arial;
+    text-decoration:none;
+}
+
+.myOrgChangeModal{
+    background:#ffffff;
+    border-radius:10px;
+    padding:10px;
+    width:700px;
+    color:#393f39;
+    position:fixed;
+    top:100px;
+    left: 50%;
+    margin-left: -300px;
+    z-index:99999;
+}
+    .myOrgChangeModal h3{
+	margin-bottom:25px;
+    }
+    .myOrgChangeModal h4{
+	color:#809433 !important;
+	margin-bottom:0px;
+    }
+    .myOrgChangeModal .border-bottom {
+	border-bottom:1px solid #cccccc;
+    }    
+    .myOrgChangeModal p {
+	margin:0 0 10px 0;
+	padding-bottom:10px;
+    }
+
+
+
+.satSubStudyGuideModal{
+    background:#ffffff url(/img/SAT-Study_Guide_Book_w-DVD-Icon.jpg) no-repeat 20px 10px;
+    padding:20px 20px 20px 210px;
+    position:fixed;
+    top:150px;
+}
+
+
+.yui-skin-sam .yui-ac-container ul li {
+    background-image: none;
+    cursor: pointer;
+}
+.yui-skin-sam .yui-ac-container {
+    top: 30px;
+}
+:first-child + html .yui-skin-sam .yui-ac-container {
+    left: -68px;
+}
+.advSearchCol {
+    width: 200px;
+}
+.bg-black {
+    background-color: #000000;
+}
+.bg-dark-gray {
+    background-color: #DDDDDD;
+}
+.bg-light-gray {
+    background-color: #EEEEEE;
+}
+.bg-white {
+    background-color: #FFFFFF;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.height-normal {
+    height: 40px;
+}
+.margin-none {
+    margin: 0;
+}
+.margin-indent-normal {
+    margin-left: 30px;
+}
+.margin-bottom-normal {
+    margin-bottom: 10px;
+}
+.padding-none {
+    padding: 0;
+}
+.rounded {
+    border-radius: 10px 10px 10px 10px;
+}
+.width-medium {
+    width: 125px;
+}
+.width-medium-large {
+    width: 180px;
+}
+.width-large {
+    width: 200px;
+}
+.bold {
+    font-weight: bold;
+}
+.normal {
+    font-weight: normal;
+}
+.center {
+    text-align: center;
+}
+.text-large {
+    font-size: 125%;
+}
+.text-xl {
+    font-size: 175%;
+}
+.text-45 {
+    font-size: 45px;
+}
+.section-block {
+    border: 1px solid #DDDDDD;
+    margin: 10px 0;
+    padding: 10px;
+}
+.wrapper {
+    clear: both;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+}
+.border-1 {
+    border: 12px solid red;
+}
+
+
+
+/*IE6 TRASH
+	 ie6 em tags are bleeding past their containers, need to put these properties on the container of the em to fix it */
+	* html .regHome h4,
+	* html .qotdInstruction,
+	* html .qotdInstruction p {
+		zoom: 1;
+		overflow: visible;
+	}
+	
+	 zoom was causing problem in ie6 when multiple paragraphs 
+	* html .practiceQuestionStem .qotdInstruction,
+	* html .practiceQuestionStem .qotdInstruction p {
+		zoom: 0;
+	}
+	 ie hasLayout zooma zoom zoom oner 
+	 html div.upComingUsDates -> in ie6, this below allows for the table to 
+	   show up, but then the leftnav is still gone, so i changed the font size 
+	   to 10px for the table in ie6 for now 
+	ul.tinyList, ul.toTwirl, div.toTwirl, #cbMasthead .cbNav li:hover ul, #cbMasthead .cbNav li.sfhover ul,
+	#leftColumn .leftNavModule #subNavContainer ul li, .toTwirl, * html div.upComingUsDates,
+	#searchFormFieldsWrapper, * html em p, ul.selectAGradeLevel, ul.none, ul#contactTelephone {
+		zoom: 1;
+	}
+
+.lls{ zoom:1; }
+.zoom1 {
+    zoom:1;
+}
+.toTwirl {
+	margin-left: 14px;
+}
+
+
+
+h3 + .toTwirl {
+	margin-left: 40px;
+}
+
+.toTwirl ul {
+	margin-left: 0 !important;
+	margin-bottom:10px;
+}
+
+.toTwirl ul li {
+	margin: 0 0 10px 0;
+	padding: 0 0 0 10px;
+	list-style-type: none;
+	background: url(/img/regularBullet.gif) no-repeat 0 8px;
+}
+
+.moreInformationFees > li{
+	background: none;
+}
+
+.incorrectCorrectOmittedIcons span.iconTxt {
+	display: inline-block;
+	margin: 15px 0 0 10px;
+	font-size: 15px;
+}
+.incorrectCorrectOmittedIcons div.iconLegend {
+	margin-right: 30px;
+}
+
+
+
+
+/* practice page scantron list table */
+table.pracScanTronList .clearMyAnswer {
+	position: absolute;
+	left: 250px;
+	margin-top: 5px !important;
+}
+*:first-child+html table.pracScanTronList .clearMyAnswer {
+	left: 200px;
+	margin-top: 0;
+}	
+/* ie6 no likey big font, makes table too wide and wraps 3rd col */
+* html .tinyTable td,
+* html .tinyTable th {
+	font-size: 10px !important;
+}
+div.grid_4 table.tinyTable {
+	table-layout: fixed;
+	width: 200px;
+}
+
+/* test day reminder icon */
+a.testDayReminderIcon {
+	margin-left: 5px;
+	border-left:1px solid #000;
+	padding-left:10px
+	
+}
+
+
+
+
+#subQsPrintTools {
+	clear: left;
+}
+#subResultsHeader {
+	/*width: 550px;*/
+}
+/* jquery flash css */	
+.flash-replaced .alt {
+	display: block;
+	height: 0;
+	position: absolute;
+	overflow: hidden;
+	width: 0;
+}
+
+/* note under tables with asterisk */
+.specialNote {
+	color: #0099ff;
+	font-size: 10px;
+	font-weight: bold;
+}	
+.specialNote span {
+	color: #000;
+	font-weight: normal;
+}
+/* regular note style */
+.regularNote {
+	font-size: 11px;
+}
+/* footnote for passages */
+.footnote p,
+#qotdQuestionContainer .questionStem .footnote p, 
+#qotdQuestionFooter .qotdHint .footnote p, 
+.qotdQuestionContainer .questionStem .footnote p, 
+#explanation .footnote p, 
+#explanation ul li .footnote p,
+.footnote a {
+	font-size: 11px;
+	margin-bottom: 0;
+}
+#footNotebeat {
+	border-top: 1px solid #b6beba;
+	padding-top: 10px;
+}
+.footnote p {
+	line-height: 18px;
+}
+
+/* quote block on practice/the essay page */
+.quote {
+	margin: 0 0 10px 73px;
+}
+.quote .authorTitle {
+	margin-left: 36px;
+	display: block;
+}
+.quote p {
+	margin-bottom: 0;
+}
+
+
+/*************************************************************************/
+/* SAT GLOBALS */
+/*************************************************************************/
+/* twirlers that open and hide blocks below them */
+a.twirler {
+	padding-left: 13px;
+	margin-left: 0;
+	background: url(/img/mediumTwirlRight.gif) no-repeat 1px 6px; 
+	font-size: 14px;
+	display: inline-block;
+	/* line-height: 18px; */ /* OPTIMIZE 372 */
+}
+table td a.twirler {
+	font-size: 12px;
+	background-position: 1px 4px;
+}
+a.twirled {
+	background: url(/img/mediumTwirlDown.gif) no-repeat 0 8px; 
+}
+h3 a.twirler {
+	background: url(/img/bigTwirlRight.gif) no-repeat 0 0; 
+	padding-left: 40px;
+	margin: 0;
+}
+h3 a.twirled {
+	background: url(/img/bigTwirlDown.gif) no-repeat 0 0; 
+}
+.numberIndent {
+	margin:0 0 0 55px;
+}
+.numberIndent p {
+	margin-top: 0;
+}
+/* page tabs */
+ul.pageTabs {
+	margin-bottom: 0px;
+	overflow: auto;
+}
+
+
+ul.pageTabs li,
+span.practiceTestNumber{
+	float: left;
+	list-style-type: none;
+	display: inline-block;
+	padding: 0 25px;
+	margin: 0 10px 0 0;
+	background-color: #c3ccc9;
+	background-image: none;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 39px;
+	height: 39px;
+}
+
+.contentModule ul.pageTabs li {
+	border: 1px solid #c3ccc9;
+}
+.contentModule .overviewRangeTabs li {
+	padding: 0 6px;
+}
+.contentModule .overviewRangeTabs li,
+.contentModule .overviewRangeTabs li a {
+	font-size: 20px;
+}
+.contentModule .overviewRangeTabs li.last {
+	margin-right: 0;
+}
+
+ul.pageTabs li.current {
+	color: #57645d;
+	background-color: #fff;
+}
+ul.pageTabs li,
+ul.pageTabs li a,
+span.practiceTestNumber {
+	color: #778981;
+	font-size: 14px;
+	text-decoration: none;
+}
+ul.pageTabs li:hover{
+	background-color: #003D5A;
+	cursor: pointer;
+	color:#fff !important;
+}	
+
+ul.pageTabs li.current a {
+	color: #58655e;
+	font-size: 14px;
+}
+ul.pageTabs li.current a:hover {
+	cursor: default;
+	color:#fff;
+}
+ul.pageTabs li.omitted,
+ul.pageTabs li.omitted a {
+	cursor: default;
+}
+ul.pageTabs li.omitted a {
+	color: #dce0df;
+}
+ul.pageTabs li.omitted:hover {
+	background-color: #c3ccc9;
+}
+ul.pageTabs li{
+	background-color:#85948D;
+}
+ul.pageTabs li a{
+	color:#FFF;
+}
+/* different tabs on top of page */
+/* numbered tabs and wordy tabs */
+ul.topNumberedTabs,
+ul.pageTabs {
+	height: auto;
+	overflow: hidden;
+}
+ul.topNumberedTabs li,
+span.practiceTestNumber {
+	padding: 0 15px;
+	margin-top: 5px;
+}
+ul.topNumberedTabs li a,
+ul.topNumberedTabs li.current a,
+span.practiceTestNumber,
+ul.topNumberedTabs li {
+	font-family:helvetica;
+	font-size:26px;
+}
+ul.wordyPageTabs li {
+	padding: 5px 15px 8px 15px;
+	height: auto;
+	line-height: 26px;
+	text-align: center;
+}
+/* myOrgButton will also use .button class, class="button myOrgButton" */
+.myOrgButton {
+	background: #677972;
+	color: #fff;
+	font-size: 11px;
+	padding: 0 10px;
+	margin-left: 5px;
+	height: 23px;
+}
+a.myOrgButton {	
+	line-height: 23px;
+}
+/* jump links */
+.jumpLinks ul,
+ul.none li .jumpLinks ul {
+	margin: 0;
+	padding: 0;
+}
+.jumpLinks ul li,
+.jumpLinks label {
+	float: left;
+	list-style-type: none;
+}
+.jumpLinks label {
+	margin-right: 5px;
+	line-height: 17px;
+}
+.jumpLinks ul li {
+	background: url(/img/jumpLinksDivider.gif) no-repeat  0 2px;
+	padding: 0 3px 0 5px;
+	margin: 0;
+	font-size: 12px;
+	white-space: nowrap;
+}
+.jumpLinks ul li.first {
+	background: none;
+	padding-left: 0;
+	margin-left: 0;
+}	
+.jumpLinks ul li.last {
+	padding-right: 0;
+	margin-right: 0;
+}	
+.jumpLinks ul.registerLinks li a {
+	font-size: 12px;
+}
+ul.registerLinks li {
+	float:right;
+}
+/* taking border off table qotd percent table */
+table.qotdPercentCorrectTable,
+table.qotdPercentCorrectTable th,
+table.qotdPercentCorrectTable td {
+	border: 0;
+}
+/* test center closings page */
+table.testCenterClosingsTable {
+	width: 670px;
+}
+th.testCenterNameHeader {
+	white-space: nowrap;
+}
+/* table with minutes */
+table td.minutesColumn {
+	width: 180px;
+}
+table td.passageBasedColumn {
+	width: 245px;
+}
+table td.passageBasedColumn .minutesContent {
+	width: 167px;
+}
+.passageBasedColumn .minutesMedium,
+.minutesColumn .minutesMedium,
+.minutesContent .minutesMedium {
+	width: 55px;
+}
+/* practice questions paragraph with underlines */
+.practiceQuestionPara p {
+	line-height: 40px;
+}
+.practiceQuestionAnswers {
+	display: inline-block;
+	position: relative;
+	line-height: 48px;
+}
+.practiceQuestionAnswers label {
+	position: absolute;
+	top: 38%;
+	left: 50%;
+	text-decoration: none !important;
+	text-transform: uppercase;
+	width: 10px;
+	margin-left: -5px;
+}
+.practiceQuestionAnswers label#answerALabel,
+.practiceQuestionAnswers label#answerCLabel,
+.practiceQuestionAnswers label#answerELabel {
+	top: 36%;
+}
+.practiceQuestionAnswers strong {
+	text-decoration: underline;
+	font-weight: normal;
+}
+/* table on prac question and answer page */
+table.questionAndAnswerReportTable tr td,
+table.questionAndAnswerReportTable tr td a {
+	font-size: 26px;
+}
+table.questionAndAnswerReportTable tr td.difficultyColumn {
+	font-weight: bold;
+}
+table.questionAndAnswerReportTable tr td.numberColumn,
+table.questionAndAnswerReportTable tr td.numberColumn a {
+	font-size: 46px;
+	font-family: helvetica;
+	text-decoration: none;
+}
+ul.qAndAReportList {
+	margin: 30px 0 20px 0;
+}
+
+/* 2 columns on feewaiver page */
+.feeWaiverPair div {
+	float: left;
+	width: 215px;
+	margin: 30px 15px 0 0;
+	padding-left: 105px;
+	min-height: 96px;
+}
+.feeWaiverPair h4 {
+	line-height: 24px;
+}
+* html .feeWaiverPair div {
+	height: 96px;
+}
+.feeWaiverPair div.secondFee {
+	margin-right: 0;
+}
+ .feeWaiverPair .eligibilityContainer {
+ 	background: url(/img/eligibilityIcon.gif) no-repeat 0 0;
+ }
+ .feeWaiverPair .whatWaiversContainer {
+ 	background: url(/img/whatWaiversIcon.gif) no-repeat 0 0;
+ }
+ .feeWaiverPair .whereToObtainContainer {
+ 	background: url(/img/whereToObtainIcon.gif) no-repeat 0 0;
+ }
+ .feeWaiverPair .howManyContainer {
+	 background: url(/img/howManyReceiveIcon.gif) no-repeat 0 0;
+ }
+ .feeWaiverPair .howToRegContainer {
+	  background: url(/img/howToRegisterIcon.gif) no-repeat 0 0;	
+  }
+ .feeWaiverPair .restrictionsContainer {
+	  background: url(/img/restrictionsIcon.gif) no-repeat 0 0;	
+  }
+/* different sizes for prices and the feeBlock theyre inside of sometimes */
+.feeBlock {
+	margin-bottom: 10px;
+	width:160px;
+	display:inline-block;
+}
+.bigPrice {
+	font-size: 50px;
+	font-weight: bold;
+	font-family: helvetica; 
+}
+.mediumPrice {
+	font-size: 22px;
+	font-weight: bold;
+	font-family: helvetica; 
+}
+	.mediumPrice strong {
+		font-size: 12px;
+		vertical-align: top;
+		display: inline-block;
+		margin-top: 8px;
+	}
+	.mediumPrice .twoDigitNumWidth {
+		width: 43px;
+		display: inline-block;
+	}
+/* large prices/numbers inside table */
+.minutesClock {
+	background: url(/img/minutesClock.gif) no-repeat 0 40px;	
+	height: 100px;
+}
+.minutesContent {
+	width: 70px;
+	margin-top: 7px;
+}
+	.minutesContent .toTwirl {
+		margin-left: 10px;
+	}	
+/* questions content inside table on prac/bio page */	
+.smallPrice {
+	font-size: 24px; /* changed from 30px to 24px for Optimize 435 */
+	font-weight: bold;
+	font-family: helvetica; 
+} 
+td#allOtherSubjTests {
+	white-space: nowrap; /* prevent wrapping */
+}
+/* icons */
+. {
+	background: url(/img/alarmIcon.gif) no-repeat 0 0;
+	padding: 2px 4px 8px 23px;
+}
+.Modal {
+	background: url(/img/alarmIcon_modal.gif) no-repeat 0 0;
+	padding: 2px 4px 8px 23px;
+}
+.mailIcon {
+	background: url(/img/mailIcon.gif) no-repeat 0 0;
+	padding: 2px 0 0 22px;
+}	
+.yesMark {
+	background: url(/img/yesMark.gif) no-repeat 0 0;
+	display: block;
+	width: 25px;
+	height: 25px;
+	text-indent: -9999px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.byMailIcon {
+	background: url(/img/byMailIcon.gif) no-repeat 0 0;
+	padding-left: 110px;
+	min-height: 92px;
+}
+* html .byMailIcon {
+	height: 92px;
+}
+.byTelephoneIcon {
+	background: url(/img/byTelephoneIcon.gif) no-repeat 0 0;
+	padding-left: 110px;
+	min-height: 92px;
+}
+* html .byTelephoneIcon {
+	height: 92px;
+}
+/* ways to prepare icons list */
+ul.waysToPrepList li {
+	padding-left: 65px;
+	min-height: 65px;
+	margin-right: 10px;
+}
+* html ul.waysToPrepList li {
+	height: 65px;
+}	
+ul.waysToPrepList li.last {
+	margin-right: 0;
+}
+ul.waysToPrepList li.wayToPrepOnlineCourse {
+	background: url(/img/wayToPrepOnlineCourse.gif) no-repeat 0 0;
+}
+ul.waysToPrepList li.wayToPrepPrac {
+	background: url(/img/wayToPrepPrac.gif) no-repeat 0 0;
+}
+ul.waysToPrepList li.wayToPrepQotd {
+	background: url(/img/wayToPrepQotd.gif) no-repeat 0 0;
+}
+ul.waysToPrepList li.wayToPrepStudyGuide {
+	background: url(/img/wayToPrepStudyGuideSmall.gif) no-repeat 0 0;
+}
+ul.waysToPrepList li.wayToPrepSubjectTest {
+	background: url(/img/wayToPrepPrac.gif) no-repeat 0 0;
+}
+ul.waysToPrepList li.wayToPrepStudyGuideAll {
+	background: url(/img/subjectPracticeStudyGuideIcon.gif) no-repeat 0 0;
+}
+/* acceptable forms of payment icons list */
+ul.acceptableFormsList li {
+	float: left;
+	width: 123px;
+	padding-left: 100px;
+	min-height: 150px;
+}
+* html ul.acceptableFormsList li {
+	height: 62px;
+}
+ul.acceptableFormsList li.last {
+	margin-right: 0;
+}
+ul.acceptableFormsList li strong {
+	display: block;
+}
+
+/* checklist list with icons */
+ul.mustBringList li {
+	padding-left: 133px;
+	min-height: 144px;
+	float: left;
+	width: 195px;
+	margin-bottom:11px
+}
+* html ul.mustBringList li {
+	height: 144px;
+}
+ul.mustBringList li ul li {
+	min-height: 0;
+	height: auto;
+	float: none;
+	width: auto;
+}
+ul.mustBringList li.yourAdmissionTicket {
+	background: url(/img/yourAdmissionsTicket.jpg) no-repeat 0 0;
+}
+ul.mustBringList li.pencilsAndEraser {
+	background: url(/img/twoNumTwoPencils.jpg) no-repeat 0 0;
+}
+ul.mustBringList li.photoId {
+	background: url(/img/photoId.jpg) no-repeat 0 0;
+}
+ul.mustBringList li.acceptableCalculator {
+	background: url(/img/acceptableCalculator.jpg) no-repeat 0 0;
+}
+ul.mustBringList li.aWatch{
+	background: url(/img/aWatch.jpg) no-repeat 0 0;
+}
+ul.mustBringList li.extraBatteries {
+	background: url(/img/extraBatteries.jpg) no-repeat 0 0;
+}
+ul.mustBringList li.aBag {
+	background: url(/img/aBag.jpg) no-repeat 0 0;
+}
+ul.mustBringList li.aSnack {
+	background: url(/img/aSnack.jpg) no-repeat 0 0;
+}
+/* select a grade level list on when to take a test page */
+ul.selectAGradeLevel li {
+	background: none;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+ul.selectAGradeLevel li#planDetailSeniorLink {
+	margin-right: 0;
+}
+ul.selectAGradeLevel li a {
+	display: inline-block;
+	height: 377px;
+}
+ul.selectAGradeLevel li#planDetailFreshmanLink a {
+	background: transparent url(/img/selectAGradeLevel.gif) no-repeat scroll 0 0;
+	width: 166px;
+}
+ul.selectAGradeLevel li#planDetailSophomoreLink a {
+	background: transparent url(/img/selectAGradeLevel.gif) no-repeat scroll -162px 0;
+	width: 169px;
+}
+ul.selectAGradeLevel li#planDetailJuniorLink a {
+	background: transparent url(/img/selectAGradeLevel.gif) no-repeat scroll -328px 0;
+	width: 165px;
+}
+ul.selectAGradeLevel li#planDetailSeniorLink a {
+	background: transparent url(/img/selectAGradeLevel.gif) no-repeat scroll -495px 0;
+	width: 179px;
+}
+/* scores homepage 3 sections */
+ul.scorePromosAList li.scoresPromoContainer {
+	width: 340px;
+	margin-right: 0;
+}
+ul.scorePromosAList {
+	width: 680px;
+}	
+ul.scorePromosAList li.scoresPromoContainer ul.none {
+	margin-left: 0;
+}
+/* review Answers list on review prac pages with big numbered list */
+ol.reviewAnswersList,
+ol.reviewAnswersList li {
+	margin: 0;
+}
+.reviewAnswersContent {
+    width:100%;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    z-index:3000;
+    padding:30px;
+}
+ol.reviewAnswersList li {
+    /*left: 50%;*/
+    /*display:none;*/
+    list-style-type: none;
+    /*margin-left: -375px;*/
+    /*min-height: 60px;*/
+    /*padding:0;*/
+    /*position: fixed;*/
+    /*top: 65px;*/
+    /*width: 700px;*/
+    /*z-index: 9999999;*/
+}
+ol.reviewAnswersList li div.reviewAnswerListContent {
+	margin-left:90px;
+}
+ol.reviewAnswersList li.numCount {
+	font-size: 72px;
+	font-family: helvetica;
+	font-weight: bold;
+	float: left;
+	line-height: 66px;
+}
+ol.reviewAnswersList li.correctAnswer {
+	background: url(/img/positiveHeader.gif) no-repeat 605px 20px;
+}
+ol.reviewAnswersList li.incorrectAnswer {
+	background: url(/img/negativeHeader.gif) no-repeat  605px 20px;
+}
+ol.reviewAnswersList li .questionStem ol li {
+	min-height: 1px;
+	margin-left: 40px;
+}
+#testYourSkillsInThisBand ol.reviewAnswersList li {
+	padding-right: 0;
+}
+#testYourSkillsInThisBand .qotdQuestionContainer .qotdChoicesFields ul.qotdChoiceList li label {
+	max-width: 450px;
+}
+* html #testYourSkillsInThisBand .qotdQuestionContainer .qotdChoicesFields ul.qotdChoiceList li label {
+	width: 450px;
+}
+* html #testYourSkillsInThisBand .qotdQuestionContainer .qotdChoicesFields ul.qotdChoiceList {
+	float: left;
+}
+ol.reviewAnswersList li .passageModal {
+	width: 450px;
+}
+div.passageModal h6 {
+	margin-bottom: 18px;
+}
+ol.reviewAnswersList li div.skillDescription p {
+	font-size: 22px;
+}
+/* horizontal list on skills insight*/
+ol.skillsInsightHorizontalList li {
+	float: left;
+	background: url(/img/skillsInsightHorizontalList.gif) no-repeat 0 0;
+	width: 41px;
+	height: 41px;
+	text-align: center;
+	padding: 3px 0 0 1px;
+	margin:0 10px 0 0; 
+}
+* html ol.skillsInsightHorizontalList li {
+	padding-bottom: 5px;
+}
+ol.skillsInsightHorizontalList li,
+ol.skillsInsightHorizontalList li a,
+ol.skillsInsightHorizontalList li.current,
+ol.skillsInsightHorizontalList li.current a  {
+	font-size: 30px;
+	color: #fff;
+	font-family: helvetica;
+	font-weight: bold;
+}
+ol.skillsInsightHorizontalList li a:hover {
+	text-decoration: none;
+}
+ol.skillsInsightHorizontalList li.current {
+	background: url(/img/skillsInsighHListCurrent.gif) no-repeat 0 0;
+}
+ol.skillsInsightHorizontalList li.current {
+	color: #57645d;
+}
+ol.reviewAnswersList li ul.skillChoiceList {
+    zoom:1;
+    left: -50px;
+}
+ol.reviewAnswersList li ul.skillChoiceList li {
+    _height:40px;/*Something didn't inherit here so I added for ie 6 */
+    background:none !important;
+    zoom:1;
+}
+ol.reviewAnswersList li ul.skillChoiceList li input {
+    visibility:hidden;
+}
+ol.reviewAnswersList li ul.skillChoiceList li.correct {
+    background:transparent url(/img/qotd_correct.gif) no-repeat scroll 0 0 !important;
+}
+/* promo header on skills insight */
+#skillsIntro h3.promoHeader {
+	margin-top: 25px;
+}
+.practicePriceBubble {
+	background: url(/img/practicePriceBubble.gif) no-repeat top right;
+	width: 88px;
+	height: 44px;
+	color: #fff;
+	text-align: center;
+	padding-top: 6px;
+	font-size: 20px;
+}
+.fpTestPrevNext input,
+.fpTestPrevNext a {
+	float:left;
+}
+/* prev next links on sat skills insight */
+.skillsInsightPrevNext .previousLink,
+.skillsInsightPrevNext .nextLink {
+	margin: 15px 10px;
+	display: inline-block;
+}
+.skillsInsightPrevNext .nextLink {
+	margin-left: 0;
+}
+.skillsInsightPrevNext {
+	font-size: 14px;
+	font-weight: bold;
+	color: #999;
+}
+
+/*************************************************************************/
+/* Pattern: primary content container */
+/*************************************************************************/
+#content #main {
+	margin-top: 20px;
+}
+#content #main .contentModule {
+	background: #fff; 
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+/* global line height breaking some stuff sat optimization:
+line-height:18px;
+*/
+}
+/*************************************************************************/
+/* Pattern: page heading */
+/*************************************************************************/
+/* needs min-height if there's no subhead, register now module bleeds into mainBody */
+#content #main #mainHeaders {
+	margin-bottom: 10px;
+	min-height: 118px;
+}
+/* ie renders the cufon font with a little different space */
+*:first-child+html #content #main #mainHeaders {
+	min-height: 128px;
+}
+* html #content #main #mainHeaders {
+	height:128px;
+}
+* html #content #main #mainHeaders {
+	margin-bottom: 0;
+}
+*:first-child+html #content #main #mainHeaders {
+	margin-bottom: 0;
+}
+    .pageHeaders {
+		width: 580px;
+		float: left; 
+	}
+   		.pageHeaders h1#pageHeading { 
+			font-size: 60px; 
+			font-weight: lighter; 
+			color: #393f39; 
+			letter-spacing: -2px; 
+			margin-bottom: 0px; 
+			width: 580px; 
+			line-height: normal;
+		}
+		/* for Cufon.replace('h1#pageHeading'); */
+		.cufon-active h1#pageHeading { 
+			margin-top: 1px;
+			margin-left: -1px;
+			line-height: 55px;
+		}
+	    .pageHeaders h2#pageSubHeading { 
+			margin: 0px 0 24px 0; 
+			font-size: 24px; 
+			color: #393f39;	
+			letter-spacing: 0px; 
+			font-weight: normal; 
+			line-height: normal; 
+			width: 580px; 
+		}
+		*:first-child+html .pageHeaders h2#pageSubHeading {
+			margin-bottom: 34px;
+		}
+	    .shortTestDates { 
+			float: right; 
+			width: 100px; 
+			padding: 10px 10px 12px 10px; 
+			background: #fff; 
+			font-size: 12px;
+		}
+	   	.shortTestDates a {
+			text-align: center; 
+			padding-top: 4px;
+			margin-bottom: 10px;
+		}
+		/* wasn't wrapping in ie6 */
+		* html .shortTestDates a {
+			white-space: normal;
+		}
+	   	.shortTestDates p {
+            margin-bottom: 0;
+		}
+	    .shortTestDates #utilityCalloutRegisterBy {
+			position: absolute; 
+			left: -9999px;
+		}
+/*************************************************************************/
+/*Footer - siteInfo and Global Footer*/
+/*************************************************************************/
+#siteInfo {
+	padding: 40px 0 15px 0;
+	}
+	#siteInfoContainer {
+		background: #fff; 
+		height: 40px;
+	}
+	#siteInfoContainer #siteInfoDesc {
+		font-family: helvetica; 
+		font-size: 12px; 
+		font-weight: normal; 
+		text-decoration: none; 
+		padding: 13px 15px 1px 0; 
+		float: right;
+		_margin-bottom: -4px;
+	}
+	#siteInfoContainer #siteInfoDesc a {
+		font-weight: normal; 
+		text-decoration: none; 
+	}
+	#siteInfoContainer #siteInfoDesc span span#footerYear {
+		color: #000;
+	}
+	#siteInfoContainer a#siteLink {
+		font-weight: normal;
+	}
+	#siteInfoContainer a#siteLink:hover {
+		color: #003d5a;
+		text-decoration: underline;
+	}
+	#siteInfoContainer #footerUtility {
+		font-family: helvetica; 
+		font-size: 12px; 
+		font-weight :normal;  
+		color: #333; 
+		width: 300px;
+		padding: 13px 0 1px 10px;
+		_margin-bottom: -4px;
+	}
+	#siteInfoContainer #footerUtility a {
+		font-family: helvetica; 
+		font-size: 12px; 
+		text-decoration: none; 
+		color: #09f; 
+		padding: 0 7px;
+	}
+	#siteInfoContainer #footerUtility a:hover {
+		color: #003d5a;
+		text-decoration: underline;
+	}
+div#trusteDiv {
+	float: right;
+	position: relative;
+	text-indent: -9999px;
+	left: -25px;
+	_top: -40px;
+}
+a#trusteLogo {
+	background: url(/img/Trustee_logo.gif) 0 0 no-repeat; 	
+	display: block;
+	width: 117px;
+	height: 32px;	
+}	
+
+/* Global Footer */
+
+#cbFooter .footerContainer .footerBox h5 {
+	font-weight: bold;
+}
+
+#cbFooter .footerContainer .footerBox ul li {
+margin:0;
+padding:0 0 5px 0;
+background: none;
+
+}
+
+#cbFooter .footerContainer .footerBox ul li a {
+	font-weight: normal;
+	font-size: 12px;
+}
+
+#cbFooter .footerContainer .footerBox sup {
+vertical-align: super;
+margin-left:0;
+}
+
+
+/*************************************************************************/
+/* main Modules */
+/*************************************************************************/	
+/* removing the margins of the modules, so they fit and dont collapse in ie */
+#mainModules #module1CallOut.alpha,
+#mainModules #module2CallOut.alpha,
+#mainModules #module3CallOut.alpha,
+#mainModules #module4CallOut.alpha {
+	margin:0;
+}	
+
+/*************************************************************************/
+/*bar graph key*/
+/*************************************************************************/
+.barGraph {
+	background: none; 
+	margin: 0 auto; 
+	padding: 30px 10px 10px 10px; 
+	width: 350px;
+}
+    *:first-child+html .barGraph {
+		padding: 30px 10px 10px 10px;
+	}
+    *>.barGraph{
+		padding: 10px 10px 10px 10px;
+	}
+    .barGraph ul.barColumnsValues {
+		margin: -20px 0 0 0; 
+		padding: 0; 
+		float: left;
+		font-family: helvetica, arial, sans-serif; 
+	}
+    .barGraph .barColumnsValues li {
+		margin: 0; 
+		padding: 0; 
+		list-style-type: none; 
+		display: block; 
+		float: left; 
+		font-weight: bold; 
+		text-align: center; 
+		width: 58px;
+	}
+    /* CB bar graph overwrite */
+    .barGraph .visualize {
+		background: none;
+	}
+    .barGraph .visualize {
+		margin-top: 25px;
+	}
+    .barGraph .visualize canvas {
+		border-left: 1px solid #4a4a09; 
+		border-bottom: 1px solid #4a4a09;
+	}
+    .barGraph .visualize-labels-x li span.label {
+		margin-top: -200px; 
+		font-weight: bold; 
+		color: #000;
+	}
+    .barGraph .visualize-labels-x li {
+		border-right: 1px solid #b09b1a;
+	}
+	/* CB bar graph key */
+    .barGraphKeyGroup {
+		width: 350px; 
+		padding-top: 10px; 
+		height: 20px;
+		font-family: helvetica, arial, sans-serif; 
+	}
+	.barGraphKeyGroup .barGraphKeyCorrect {
+		float: left;
+	}
+	.barGraphKeyGroup .barGraphKey {
+		float: right;
+	}
+	.barGraphKeyGroup .barGraphKey .barGraphKeyYou {
+		background: url(/img/barGraphKeyYou.gif) no-repeat left top; 
+		padding: 0 20px 0 25px; 
+		height: 20px;
+	}
+	.barGraphKeyGroup .barGraphKey .barGraphKeyOthers {
+		background: url(/img/barGraphKeyOthers.gif) no-repeat left top; 
+		padding-left: 25px; 
+		height: 20px;
+	}
+/*************************************************************************/
+/* utility callouts/reg button inside contentModule container */
+/*************************************************************************/	
+/* z-index:1 so it's clickable above the header block element it is floating to the right of */
+
+.utilityCalloutsInside {
+	float: right;
+	z-index: 1;
+	text-align: right;
+	width: 300px;
+}
+.utilityCalloutsInside a {
+	display: inline-block;
+}
+.utilityCalloutsInside div {
+	text-align: right;
+	border:1px solid #000;
+}
+.utilityCalloutsInside ul li {
+	margin-top: 10px;
+}
+.utilityCalloutsInside ul li a {
+	margin-top: 0;
+}
+
+
+/*************************************************************************/
+/* misc tables */
+/*************************************************************************/	
+/* results table on sat subject test page */
+/*#satTestDateTable,
+#testDateResultsTable tr,
+#testDateResultsTable tr {
+	display: none;
+}
+*/
+/* fees tables on register/test dates page */
+table.satFeesTable {
+	width: 330px;
+	margin-right: 20px;
+}
+table.satSubjectFeesTable {
+	width: 330px;
+}
+/* results table on sat subject test page */
+
+table#testDateResultsTable thead tr th {
+	height: 50px;
+	font-size: 14px;
+}
+table#testDateResultsTable th.first {
+	width: 200px;
+}
+table#testDateResultsTable tbody tr th {
+	font-size: 16px;
+	color: #ea5238;
+	height: 45px;
+}
+/* fees page table */
+th#testNameCol {
+	width: 118px;
+}
+th#waysToPrepareCol {
+	width: 350px;
+}
+
+
+/*************************************************************************/
+/* when to take 
+/*************************************************************************/
+.floatPrintDiv {
+	float: right;
+	margin-top: 10px;
+}
+/*************************************************************************/
+/* test day checklist 
+/*************************************************************************/
+p#cdPlayer {
+	clear: left;
+}
+/*************************************************************************/
+/* student search service
+/*************************************************************************/
+#studentSearchStepTwo p {
+	margin-top: 20px;
+}
+/*************************************************************************/
+/* search
+/*************************************************************************/
+a#advancedSearch {
+	display: block;
+	clear: left;
+	width: 130px;
+	margin-top:4px;
+}
+#narrowSearchFormFields div.labelTextboxPair label {
+	width: 250px;
+}
+/*************************************************************************/
+/*closed test centers
+/*************************************************************************/
+#closedTestCentersTabBlock li {
+	background: none;
+	width: 210px;
+	float:left;
+}
+#closedTestCentersTabBlock table caption {
+	font-size: 24px;
+	color: #EA5238;
+	text-align: left;
+}
+/* custom radios */
+/* wrapper divs */
+.custom-radio { 
+	position: relative; 
+}
+
+/*************************************************************************/
+/* whysat section */
+/*************************************************************************/
+h3#aboutHeader {
+	float: left;
+	width: 85px;
+}
+select#aboutSelect {
+	margin-top: 6px;
+}
+#aboutSelectDiv {
+	height: 40px;
+}
+/** TODO CLEANUP START HERE **/
+ul#whysatRelatedVideo {
+	margin: 0;
+	clear: left;
+}
+ul#whysatRelatedVideo li {
+    background:none;
+    float:left;
+    padding:0;
+}
+
+ul#whysatRelatedVideo li .videoBlock {
+    background:#D8DEDC;
+    .display:inline;
+    margin:8px 24px 0px 0;
+    padding:15px;
+}
+
+.videoCaption {
+    color:#000000;
+    margin:10px 0 0 3px;
+    width:143px;
+}
+.videoCaption p {
+	color: #556660;
+	font:bold 14px Georgia;
+	line-height:18px;	
+}
+/** TODO CLEANUP END HERE **/
+
+h3#moreQuestionsHeader {
+	margin: 30px 0 20px;
+}
+/*************************************************************************/
+/* qotd calendar page */
+/*************************************************************************/
+.qotdChooseDifferentDay div.floatLeft {
+	width: 47%;
+	padding: 8px;
+}
+/*************************************************************************/
+/* random background images */
+/*************************************************************************/
+div.bestTimeToTakeSat {
+	background: url(/img/whensTheBestTime.gif) no-repeat top right; 
+	padding-right: 275px;
+	min-height: 195px;
+}
+* html div.bestTimeToTakeSat {
+	height: 195px;
+}
+div.bestTimeModule {
+	padding: 0;
+	width: 320px;
+	height: 191px;
+	min-height: 0;
+}
+div.upComingUsDates {
+	background: url(/img/usTestDates.gif) no-repeat 0 0; 
+	padding-top: 80px;
+}
+/* because ie6 is a pita, table is not fitting and causing leftnav to disappear
+leaving this in until a better solution */
+* html .upComingUsDates table td,
+* html .upComingUsDates table th,
+* html .upComingUsDates table a {
+	font-size: 10px !important;
+}
+div.intComingUsDates {
+	background: url(/img/intTestDates.gif) no-repeat 0 0; 
+	padding-top: 80px;
+}
+div.mySATOnlineScoreReportCallout {
+	background: url(/img/mySATOnlineScoreReport.gif) no-repeat 0 0; 
+	padding-top: 188px;
+	width: 330px;
+	float: left;
+	margin-right: 20px;
+}
+div.scoreChoiceCallout {
+	background: url(/img/scoreChoiceCallout.gif) no-repeat 0 0; 
+	padding-top: 188px;
+	width: 330px;
+	float: left;
+}
+div.studentSearchDiagram {
+	background: url(/img/studentSearchDiagram.gif) no-repeat 0 0; 
+	width: 680px;
+	height: 307px;
+}
+div.saServiceDiagram {
+	background: url(/img/saServiceDiagram.jpg) no-repeat 0 0; 
+	width: 678px;
+	height: 491px;
+}
+div.qaServiceDiagram {
+	background: url(/img/qaServiceDiagram.jpg) no-repeat 0 0; 
+	width: 678px;
+	height: 491px;
+}
+div.scoreChoiceDiagram {
+	background: url(/img/scoreChoiceDiagram.gif) no-repeat 0 0; 
+	width: 680px;
+	height: 321px;
+	margin-bottom: 10px;
+}
+div.sasDollarBubble,
+span.sasDollarBubble {
+	background: url(/img/sasDollarBubble.gif) no-repeat top right;
+	width: 48px;
+	height: 34px;
+	position: absolute;
+	top: 5px;
+	left: 645px;
+}
+/* header that gives space for the icon in the upper right corner */
+h3.sasDollarBubbleHeader {
+	padding-right: 58px;
+}
+div.qasDollarBubble,
+span.qasDollarBubble {
+	background: url(/img/qasDollarBubble.gif) no-repeat top right;
+	width: 48px;
+	height: 33px;
+	position: absolute;
+	top: 5px;
+	left: 645px;
+}
+/* header that gives space for the icon in the upper right corner */
+h3.qasDollarBubbleHeader {
+	padding-right: 58px;
+}
+div.sssFreeBubble,
+div.scoreChoiceFreeBubble,
+span.scoreChoiceFreeBubble {
+	background: url(/img/sssFreeBubble.gif) no-repeat top right;
+	width: 47px;
+	height: 37px;
+	position: absolute;
+	top: 5px;
+	left: 645px;
+}
+h4.freeBubble {
+	background: url(/img/sssFreeBubble.gif) no-repeat top right;
+	width: 320px;
+	margin-top: 0 !important;
+	min-height: 34px;
+}
+* html h4.freeBubble {
+	height: 34px;
+}
+span.bubbleInTeaserModule {
+	position: static;
+	float: right;
+}
+/* header that gives space for the icon in the upper right corner */
+h3.sssFreeBubbleHeader,
+h3.scoreChoiceFreeBubbleHeader {
+	padding-right: 58px;
+}
+h3.satOnlineCourseBubbleHeader {
+	padding-right: 95px;
+}
+div.whatNotToBringBgImg {
+	background: url(/img/whatNotToBringBgImg.jpg) no-repeat 0 0;
+	width: 643px;
+	height: 623px;
+	margin-left: 30px;
+}
+div.buildYourScoreRecipList {
+	background: url(/img/buildYourScoreRecipList.gif) no-repeat -135px -180px;
+	width: 233px;
+	height: 78px;
+	border: 1px solid #dcdcdc;
+	margin: 5px 0 10px 10px;
+}
+/* the page with the image above, giving the header a margin so the block 
+   doesnt display on top of the image  */
+#sendYourScores #sendScoresHeader {
+	margin: 0 240px 30px 0;
+}
+div.subScoresGraphic {
+	background: url(/img/subScoresGraphic.gif) no-repeat 0 0;	
+	width: 272px;
+	height: 183px;
+	float: right;
+	margin-left: 15px;
+}
+div.howEssayScoredGraphic {
+	background: url(/img/howEssayScoredGraphic.gif) no-repeat 0 0;	
+	width: 665px;
+	height: 269px;
+}
+/* info para right next to 3 img divs below*/
+div.firstCalculateRawScoresInfo {
+	margin-left:360px; 
+}
+div.firstCalculateRawScores {
+	background: url(/img/firstCalculateRawScores.gif) no-repeat 0 0;	
+	width: 360px;
+	height: 277px;
+}
+div.andCreateConversionChart {
+	background: url(/img/andCreateConversionChart.gif) no-repeat 0 0;	
+	width: 339px;
+	height: 283px;
+}
+div.thatGivesFinalScore {
+	background: url(/img/thatGivesFinalScore.gif) no-repeat 0 0;	
+	width: 342px;
+	height: 134px;
+}
+div.codeSearchModule {
+	background: url(/img/codeSearchModule.gif) no-repeat 0 0;	
+	width: 320px;
+	height: 176px;
+}
+/* hp = homepage modules */
+a.hpSteps123 {
+	display: block;
+	background: url(/img/hpSteps123.gif) no-repeat 0 0;	
+	width: 200px;
+	height: 200px;
+	text-indent: -9999px;
+}
+div.hpLessonsLearned {
+	background: url(/img/hpLessonsLearned.gif) no-repeat 0 0;	
+	width: 200px;
+	height: 205px;
+}
+div.hpTestDayChecklist {
+	background: url(/img/hpTestDayChecklist.jpg) no-repeat 0 0;	
+	width: 199px;
+	height: 200px;
+}	
+a.hpQOTD {
+	display: block;
+	background: url(/img/hpQOTD.gif) no-repeat 0 0;	
+	width: 200px;
+	height: 195px;
+	text-indent: -9999px;
+}	
+a.hpTestDaySimulator {
+	display: block;
+	background: url(/img/hpTestDaySimulator.jpg) no-repeat 0 0;	
+	width: 200px;
+	height: 200px;
+	text-indent: -9999px;
+}
+a.hpScoreChoice {
+	display: block;
+	background: url(/img/hpScoreChoice.gif) no-repeat 0 0;	
+	width: 200px;
+	height: 211px;
+	text-indent: -9999px;
+}
+div.hpUnderstand {
+	background: url(/img/hpUnderstand.gif) no-repeat 0 0;	
+	width: 200px;
+	height: 200px;
+}
+div.hpWhyTheSat {
+	background: url(/img/hpWhyTheSat.gif) no-repeat 0 0;	
+	width: 214px;
+	height: 148px;
+}
+div.beforeStartingGrab {
+	background: url(/img/beforeStartingGrab.jpg) no-repeat 0 0;	
+	width: 632px;
+	height: 156px;
+}
+div.multiChoiceChart {
+	background: url(/img/multiChoiceChart.gif) no-repeat 0 0;	
+	width: 454px;
+	height: 318px;
+}
+div.officialSatOnlineCourse {
+	background: url(/img/officialSatOnlineCourse.gif) no-repeat 0 0;	
+	width: 670px;
+	height: 193px;
+	color: #fff;
+	font-size: 16px;
+}
+div.officialSatOnlineCourse p {
+	width: 300px;
+	padding: 10px;
+}
+div.satSkillsInsight {
+	background: url(/img/practiceSkillsInsight.gif) no-repeat 0 0;	
+	width: 320px;
+	height: 197px;
+	margin-left: 15px;
+}
+div.lightHeavyBar {
+	background: url(/img/lightHeavyBar.gif) no-repeat 0 0;	
+	width: 680px;
+	height: 21px;
+}
+div.selectTheSelection {
+	background: url(/img/selectTheSelection.gif) no-repeat 0 0;
+	width: 221px;
+	height: 122px;
+}
+div.chooseAScoreBand {
+	background: url(/img/chooseAScoreBand.gif) no-repeat 0 0;
+	width: 221px;
+	height: 122px;
+}
+div.selectASkillGroup {
+	background: url(/img/selectASkillGroup.gif) no-repeat 0 0;
+	width: 221px;
+	height: 122px;
+}
+div.testDayChecklistTips {
+	background: url(/img/testDayChecklistTips.jpg) no-repeat 0 0;
+	width: 302px;
+	height: 373px;
+}
+div.testDaySimulatorTips {
+	background: url(/img/testDaySimulatorTips.jpg) no-repeat 0 0;
+	width: 320px;
+	height: 349px;
+}
+div.verifyingYourScoresModule {
+	background: url(/img/verifyingYourScores.gif) no-repeat 0 0;
+	width: 285px;
+	height: 168px;
+}
+div.feedBackModule {
+	background: url(/img/feedBackModule.gif) no-repeat 0 0;
+	width: 320px;
+	height: 159px;
+}
+/* list of images on practice answered imagined page */
+ul.moreAnswersImagined li a {
+	display: block;
+}
+ul.moreAnswersImagined li.last {
+	margin-right: 0;
+}
+div#aiQuestionsBar{
+	margin:3px 0 14px 0;
+	z-index:200;
+}
+
+ul.answersImagingedBar li{
+	margin:0 3px 20px 0;
+	padding-top:7px;
+}
+ul.answersImagingedBar li a{
+	display: block;
+	color:#fff;
+	background:#09f;
+	padding:5px 27px 5px 5px;
+}
+ul.answersImagingedBar li a:hover{
+	background:#003d5a;
+}
+ul.answersImagingedBar li.last {
+	margin-right:0px;
+}
+ul.answersImagingedBar li.last a{
+	padding:5px 32px 5px 5px;
+}
+ul.answersImagingedBar li.active{
+	background:url("/img/orangetriangle.gif") no-repeat top center;	
+}
+
+ul.answersImagingedBar  li.active a,
+ul.answersImagingedBar  li.active a:hover{
+	background:#ffb822;	
+}
+/*buttons for View Question and Answer pages. These buttons only appear when javascript is turned off */
+/* if Javascript is enabled hide button */
+input.sectionSubmitOn{
+	display:block;
+	margin-top:5px;
+}
+input.sectionSubmitOff{
+    display:none
+}
+input.ansExplanationsOn, 
+input.summaryBtnOn{
+	display:inline;
+}
+
+/* if Javascript is enabled hide button */
+input.ansExplanationsOff, 
+input.summaryBtnOff{
+	display:none;
+}
+/*########## begin timer for full practice test related */
+#timerCountdown { 
+	width:60px; 
+	height:25px; 
+	color:#393F39; 
+	font:bold 18px/25px Arial, Helvetica, Sans-serif;
+	position:absolute;
+	margin:5px 0 0 620px;
+	text-align:center;
+	z-index:999;
+}
+
+.noJSCountdown{
+	width:210px !important;
+	margin:5px 0 0 470px !important;
+}
+
+#timeRemaining{ 
+	display:inline; 
+}
+
+/*Overriding original hasCountdown styling*/
+.hasCountdown {
+	border:none;
+	background: #D8DEBD;	
+}
+
+.endCountdown {
+	border: none;
+	background: #EB5238;
+}
+/*########## end timer for full practice test related */
+
+/* for fine print */
+.noteCopy{
+	font-size:12px;
+	font-weight:bold;
+}
+
+/* test day check list utility link */
+body.registerSection .textAlignRight{
+    z-index:9;
+    padding:5px 5px 0 0;
+	float:right
+}
+
+/**************************************************************************************************
+SAT Subject Test Practice Page Template Modifications for release 9/28/2010
+**************************************************************************************************/
+
+#intro700wide {
+	width: 700px;
+}
+
+#subQsLit div {
+	left: 515px;
+	margin: 0 0 5px 0;
+    width: 170px;
+}
+
+#subQsLit #biologyButtons {
+     left: 0px;
+     padding-bottom: 10px;
+}
+
+     #subQsLit #biologyButtons #subQsIntroList #buttonLabel1 #subQsIntroLi1,
+     #subQsLit #biologyButtons #subQsIntroList #buttonLabel2 #subQsIntroLi2 {
+          *padding: 0px;
+     }
+
+     #subQsLit #biologyButtons div {
+          left: 0px;
+     }
+
+	#subQsLit div a {
+        font-size: 20px;
+        padding: 5px 13px 5px 12px;
+	}
+    
+    #practiceFeedbackAlert {
+        left: -99999px !important;
+    }
+    
+     #subQsLit #buttonLabel1,
+     #subQsLit #buttonLabel2    {
+          width: 670px;
+    }
+    
+     #subQsLit #buttonLabel2 {
+          margin-top: 15px;
+     }
+    
+    #subQsLit #buttonLabel1 strong,
+    #subQsLit #buttonLabel2 strong,
+    #subQsLit span {
+        margin: 0 0 0 5px;
+    }
+    
+    
+     #subQsLit #buttonLabel1 strong,
+     #subQsLit #buttonLabel2 strong {
+          *margin: 0px;
+     }
+
+#subQsBasics {
+    overflow: auto;
+    z-index: 99;
+}
+    
+    #subQsBasicsLeftBlock {
+        float: left;
+        overflow: visible;
+    }
+
+        #subQsBasicsLeftBlock table {
+            margin: 0 0 10px 0;
+            width: 335px;
+        }
+            
+            #subQsBasicsLeftBlock table thead tr th {
+                padding: 5px;
+            }
+
+            #subQsBasicsLeftBlock table tbody tr td {
+                padding: 5px;
+            }
+
+    #subQsBasicsRightBlock {
+        width: 335px;
+        position: relative;
+        float: right;
+        padding: 0 0 0 0;
+    }
+
+
+/**************************************************************************************************
+END - SAT Subject Test Practice Page Template Modifications for release 9/28/2010
+**************************************************************************************************/
+/**************************************************************************************************
+SAT Font size modifications for release 10/16/2010
+**************************************************************************************************/
+#font10px {
+    font-size: 10px;
+}
+/**************************************************************************************************
+END - SAT Font size modifications for release 10/16/2010
+**************************************************************************************************/
+
+/**************** OPTIMIZE 438 - March 17th, 2011 ******************/
+.deadlineExtended{
+	color:#ff0000;
+}
+#homeVertRegisterUpcomingTests .deadlineExtended{
+	color:#000;
+	margin-top:5px;
+}
+/**************** OPTIMIZE 435 *********************/
+#satRegFeeExampleIcon{
+	background:transparent url(/img/nextArrow.gif) no-repeat left center !important;
+	padding-left:16px;
+	margin-bottom:20px;
+}
+.feesExampleModal{
+	background: #fff !important;
+	width:478px !important;
+	font-size:medium;
+	height:auto !important;
+}
+
+.feesExampleModal h1{
+	font-weight:500;
+	font-size:larger;
+	margin-bottom:8px;
+}
+h2.regFeeExampleHeader{
+	color:#819433;
+	margin-bottom:0;
+	font-size:medium;
+}
+
+span.regFeeExampleBold{
+	font-weight:700;
+	margin-right:10px;
+	font-size:medium;
+}
+.regFeeExampleList {
+	width: 440px !important;
+	border:none!important;
+	margin:8px 0;
+}
+.regFeeExampleList td,
+.regFeeExampleSubHead{
+	font-size:small;
+}
+.regFeeExampleList tr,
+.regFeeExampleList td{
+	border:none!important;
+}
+.regFeeExampleList tr:last-child td,
+.regFeeExampleList tr:first-child td,
+.regFeeExampleList td:first-child
+{
+	font-weight:600;
+}
+
+.regFeeExampleCol2{
+	
+	float: right;
+	font-size:large;
+	border: #ff0000 solid 2px;
+}
+.regFeeExampleCol1{
+	width: 40px;
+	height:100%;
+	float:left;	
+	font-size:large;
+}
+
+.satFeeExampleLine{
+	margin:8px 0;
+	color: #ccc;
+	background-color:#ccc;
+	width: 100%;
+	border: 0;
+}
+
+.regFeeExampleTotal{
+	margin-top:10px;
+}
+
+.regFeeExampleTitle{
+	margin-top:30px;
+}
+
+#leftColumn{
+	_width:210px;
+}
+
+.practiceTipsNav{
+	margin-bottom:10px;
+}
+/****** ADDING CHANGES FOR SAT JIRA TICKETS AND RELEASE 5 CHANGES ******/
+body.registerSection h4 a,
+body.registerSection h4 a:hover strong {
+	/* fix for OPTIMIZE-372 */	
+	line-height:1.5em;
+}
+
+/* fix for Ticket # OPTIMIZE-371 */
+ul.bulletedListInt li {
+	margin-left: 20px !important;
+	list-style-type: square !important;
+}
+
+span.practiceTestNumber{
+	background-color:none !important;
+}
+
+
+
+/****** Added changes for Level of difficulty *******/
+#practiceQuestionDifficulty{
+	color: #819433;
+}
+
+#practiceQuestionDifficulty{
+	font-style:italic;
+	font-size:15px;
+	font-weight:600;
+}
+/* practice question summary button */
+#resultsSummaryDiv{
+	display:inline-block;
+}
+#resultsSummary{
+	float: right;
+}
+/* Visualize Results Summary */
+
+.visualModal
+{
+	background: #fff !important;
+	width:445px !important;
+	height:auto !important;
+	*>padding: 12px !important; /* IE specific padding declaration*/ 
+}
+
+.practiceSection #cbmTriggerInlineModal #totalResultsSummary h2{
+	font-weight:500;
+	margin-bottom:10px;
+}
+#visualDivider{
+	color:#CCCCCC !important;
+}
+.graph { 
+	border: 1px solid #ccc;
+	margin: 6px 0px;
+}
+.summary { 
+	width:258px;
+}
+.summaryTotal { 
+	width:100%;
+}
+#resultKey{
+	top:96px;
+	left: 64px;
+}
+#resultKey ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+
+#resultKey ul li{
+	list-style-type:none;
+	background:none;
+	padding:0;
+	margin:0;
+}
+#visualPrint{
+	top:38px;
+	left:85px;
+	/* 
+	 * The print button will be disabled until 3/17/11 
+	 * SAT Release
+	 */
+	display:none;
+}
+#resultKey h2{
+	margin-bottom:0;
+}
+.keyIcon{
+	height:20px;
+	width:40px;
+	border:solid #CCCCCC 1px;
+	display:inline-block;
+	margin-right: 8px;
+}
+#correctKey{
+	 background:#019464;	
+}
+.vsCorrect{
+	 color:#019464;
+}
+#incorrecttKey{ 
+	background:#FD0000;
+}
+.vsIncorrect{ 
+	color:#FD0000;
+}
+#omitKey{
+	background:#FFF;
+}
+.vsOmitted{
+	color:#FFF;
+}
+
+.resultsTitle {
+	font-weight:bolder;
+	margin-bottom:4px;
+}
+#visualResults,
+#resultKey{
+	position:relative;
+	float:left;
+}
+.inlineStyle{
+	display:inline-block;
+}
+#visualResults{
+	min-width:200px !important;
+	width:auto;
+}
+/* Results Summary*/
+.makeMeVisible{
+	visibility:block !important;
+	display:block !important;
+}
+	
+.makeMeHide{
+	visibility:hidden !important;
+	display:none !important;
+}			
+					
+#resultsSummaryDiv{
+	display:inline-block;
+}
+#resultsSummary{
+	z-index:1000 !important;
+}
+ol#reviewAnswersList{
+	margin-top:0px;
+	zoom:1;
+	margin-left:10px;
+}
+ol#reviewAnswersList li{
+	padding:0px;
+	position:relative;
+	background:none;
+	background-color:#e6eae9;
+	margin-left:0px !important;
+	margin-right:0px !important;
+	list-style-type:none;
+	width:44px;
+	height:63px;
+	float:left;
+	zoom:1;
+	cursor:pointer;
+}
+#visualResultsLink{
+	margin-left:15px;
+	float:left;
+}
+.practiceFeedbackLink{
+	display:normal !important;
+}
+#subQsPrintSummary{
+	float:right;
+	margin-right:10px;
+	}
+#subQsPrintThisQuestion{
+		float:right;
+		left: 70px;
+	}
+#visualizeResults{
+	float:left; 
+	margin-left:19px;
+	margin-bottom:15px;
+}
+.activeAnswer{
+	background-color:#fff !important;
+}
+.summaryFooterLinks {
+	clear:both;
+	width:670px;
+	padding-top:13px;
+	*>padding-bottom:6px;
+}
+ol#reviewAnswersList li a{
+	font-size:16px;
+	font-family:helvetica,arial,sans-serif;
+	left:40%;
+	top: 41px;
+	color:#85948D;
+	cursor:pointer;
+}
+
+#subResultsGraphContainer{
+	background-color:#e6eae9 !important;
+	overflow:auto; 
+	border: 1px solid #e6eae9;
+	padding-bottom:8px;
+ }
+#subResultsRetryLink{
+	margin-top:15px; 
+	margin-bottom:15px;
+	}
+h2.promoHeader {
+	font-weight:normal;
+	color: #819433;
+	font-size: 24px;
+	line-height: 28px; 
+	padding-bottom:19px;
+}
+#subResultsRetryLink {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+#practiceFeedbackContinue{
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+#subResultsGraphContainer h3.promoHeader {
+    margin-bottom: 0 !important;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#nextActionButton {
+	position:absolute; 
+	top:100px;
+	left:590px;
+	z-index: 1000 !important;
+}
+
+#subResultsContainer {
+	margin-top:55px;
+	background-color:#fff;
+}
+
+#yourAnswer {
+	font-size:18px;
+	font-weight:normal;
+}
+
+.numberDisplay {
+	font:bold 26px georgia;
+	margin-bottom:20px;
+}
+
+ol.reviewAnswersList li .reviewAnswerListContent {
+    margin-left: 5px !important;
+}
+
+p.correctAnswerHighlight{
+	display:inline-block !important;
+	min-width:600px;
+}
+.reviewAnswerListContent a.explanation {
+    color: #819433;
+    font-weight: normal;
+    margin-bottom: 0px;
+    min-height: 30px;
+    text-align: left;
+	background: none;
+	margin: 20px 0;
+	font-size: 18px;
+	padding:0;
+	/*padding-left:40px;*/
+}
+
+strong.correctAnswer{background:url(/img/correctSmall.png) no-repeat 0 0;padding-left:40px; font-weight:normal;}
+strong.incorrectAnswer{background:url(/img/incorrectSmall.png) no-repeat 0 0;padding-left:40px; font-weight:normal;}
+strong.omittedAnswer{
+	background:url(/img/omittedSmall.png) no-repeat 0 0;
+	padding-left:40px; 
+	font-weight:normal;
+	}
+	
+.selectedAnswerDisplay {
+  background: none repeat scroll 0 0 #E8E81F;
+  margin-left:45px;
+  display:block;
+}
+
+.whiteText {
+	color:#fff;
+	font-size:26px;
+	padding-left:25px !important;
+	position:relative;
+	float:left;
+}
+
+.yourAnswerSpacing{
+	padding-left:5px;
+	font-weight:700;
+}
+.rlm2 {
+    padding-left: 20px;
+    display:inline-block;
+    min-width:600px;
+}
+.questionText {
+	font-size:18px;
+}
+.questionExplanationDifficulty, 
+.questionExplanaitonSection{
+	margin-top: 20px;
+}
+
+
+.overTen {
+    left: 29% !important;
+}
+
+sup a {
+    color: #000000 !important;
+    font-size: 8px !important;
+    margin-left: 2px;
+    vertical-align: top !important;
+}
+
+#mainbody #question{
+	*>height:100% !important;
+}
+
+/**************** OPTIMIZE 438 ******************/
+.deadlineExtended{
+	color:#ff0000;
+}
+
+
+/********* Optimize  435 *******************/
+.regFeesTable{
+	padding:5px 10px !important;
+}
+.feesSumFirstCol{
+	width:27px
+}
+.feesSumSecondCol{
+	width:130px;
+}
+.feesSumFirstCol,
+.feesFirstCol{
+	float:left;
+}
+.feesSumSecondCol,
+.feesSecondCol{
+	float:right;
+}
+
+.feesSecondCol{
+	width:90px;
+	font-size:12px;
+}
+
+feeBlockSpacing{
+	display:inline-block;
+}
+
+.firstFeeSpacing{
+	padding-left:14px;
+}
+
+/*********** Optimize 457 *************/
+.fpTipsNav{
+	margin-bottom:6px;
+}
+/***** Optimize *****/
+.clearLine{
+/*display:none; */
+color:#fff;
+background:#fff;
+border:none;
+}
+
+/***** SPT Guide Modal *****/
+.sptStudyGuideText{
+	width:220px;
+	font-size:20px;
+	float:left;
+}
+.sptStudyGuideText p{
+	margin:10px 0;
+}
+.sptGuideModal{
+	width:479px;
+	height:341px;
+	background:#fff!important;
+	margin:0;
+	padding:0;
+/*	z-index:1;*/
+	left:40%!important;
+}
+#subjectPracticeStudyGuide{
+	margin:24px 30px;
+}
+
+#subjectPracticeStudyGuide h2{
+	font-size:48px;
+	margin:-16px 0 0 0;
+	padding:0;
+	font-weight:normal;
+	color:#819433;
+	z-index:-99;
+}
+
+#sptStudyGuideBody{
+	position:relative;
+	width:520px;
+}
+.sptStudyGuideImg{
+	background:#fff url(/img/SPTStudyGuide.gif) no-repeat;
+	width:219px;
+	height:235px;
+	float:left;
+	z-index:2;
+}
+
+#sptGuideMoreInfo{
+	font-size:20px;	
+	margin:4px 0 0 -2px;
+}
+
+#fullPracticeReportTabBlock{
+	margin-top: 10px;
+}
+/************************************************************
+ * ****** END OF RELEASE 5 (April 5th, 2011) CHANGES  *******
+ ************************************************************/
+/************************ SPT Landing Pages CHANGES *********/
+table#topicsOnTheTest_1,
+table#topicsOnTheTest{
+	min-width:666px;
+	width:666px;
+	margin-bottom:4px;
+}
+table#topicsOnTheTest_1 th,
+table#topicsOnTheTest th{
+	background-color:#ccc;
+}
+table#topicsOnTheTest_1 tr td,
+table#topicsOnTheTest_1 th,
+table#topicsOnTheTest tr td,
+table#topicsOnTheTest th{
+	padding-left:22px !important;
+	padding-right:12px;
+}
+table#topicsOnTheTest_1 tr td{
+	font-weight:600;
+}
+table#topicsOnTheTest_1 tbody tr,
+table#topicsOnTheTest tbody tr{
+	border-bottom:solid 1px #ccc;
+	padding-bottom:4px;
+}
+table#topicsOnTheTest_1 tbody tr td,
+table#topicsOnTheTest tbody tr td{
+	border-left:solid 1px #ccc !important;
+}
+table#topicsOnTheTest_1 td:last-child, 
+table#topicsOnTheTest td:last-child {
+/*	padding-top:3%; */ 
+}
+table#topicsOnTheTest_1 .cellHeader,
+table#topicsOnTheTest .cellHeader{
+	font-weight:600px;
+	font-size:large;
+}
+.topicsOnTheTestSubHead{
+	font-weight:600;
+}
+.subHeaderAlign{
+	text-align:center;:
+}
+.topicsOnTestPercent{
+	font-size: 22px;
+	font-weight: bold;
+	font-family: helvetica; 
+	padding-top:3%; 
+}
+/************************/
+.sptSpanInBold{
+	font-weight:600;
+}
+
+#satRegFeesTable,
+#satRegFeesTable td{
+	border:none;
+}
+/*****************/
+#sptAdditionalThingsExpand{
+	padding-right:10px;
+	border-right: #CCC solid 1px;
+}
+
+#sptAdditionalThingsCollapse{
+	padding-left:10px;
+}
+
+/*mbox specific css*/
+
+.mboxDefault {
+	position:static;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

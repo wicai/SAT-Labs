@@ -1,0 +1,20 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+<h1> {{questions|length}} QOTD Questions </h1>
+</br>
+<table border='1'>
+	<thead>
+		<tr>
+			<th>Question</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for q in questions %}
+		<tr>
+			<td>{{q.name}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
