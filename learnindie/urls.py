@@ -8,7 +8,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     (r'^admin/', include(admin.site.urls)),
-
     (r'^$', 'mchlrn.views.home'),
     (r'^mchlrn/parsePDF/$', 'mchlrn.views.parse_PDF'),
 )

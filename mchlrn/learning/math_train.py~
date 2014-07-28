@@ -1,10 +1,10 @@
-#TODO: figure out gradient 
+#!/usr/bin/env python
 #public libraries
 import numpy as np
 from scipy.optimize import fmin_bfgs
 #learning library
-from mchlrn.learning.cost import cost
-from mchlrn.learning.theta_gradient import gradient
+import cost
+import theta_gradient as gradient
 #models
 from mchlrn.models import Math_Q_Processed as MQP
 from mchlrn.models import Math_Theta as MT
@@ -42,7 +42,7 @@ def train():
         prob_feature[1, i] = p.length
         prob_feature[2, i] = p.num_num
         p.col_num = i
-        i++
+        i+=1
 
     #y, npr x  nu
     i = 0
@@ -53,7 +53,7 @@ def train():
             proc = MQP.objects.filter(orig_q = a.unanswered_q)
             y[proc.col_num, i] = a.correct
             r[proc.col_num, i] = 1
-        i++
+            i+=1
     #normalize y
     mu = np.reshape(np.mean(y,1),(npr,1))
     y -= mu #mean normalizationizedered!
