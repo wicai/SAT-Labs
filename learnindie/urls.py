@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^$', 'mchlrn.views.home'),
     (r'^mchlrn/parsePDF/$', 'mchlrn.views.parse_PDF'),
+    (r'^mchlrn/questionoftheday/$', 'mchlrn.views.question_of_the_day'),
+    (r'^mchlrn/qotdbatch/$', 'mchlrn.views.qotd_batch'), 
 )

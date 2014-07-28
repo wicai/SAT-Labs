@@ -1,0 +1,28 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+{% autoescape off %}
+{% load staticfiles %}
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static question.css %}">
+{% endblock %}
+<p>Channel: {{question.channel}}</p>
+<p>URL: {{question.channel_url}}</p>
+
+</br>
+
+<p>Instructions: {{question.instructions}}</p>
+<p>Question: {{question.question}}</p>
+<p>Answer A: {{question.answer_A}}</p>
+<p>Answer B: {{question.answer_B}}</p>
+<p>Answer C: {{question.answer_C}}</p>
+<p>Answer D: {{question.answer_D}}</p>
+<p>Answer E: {{question.answer_E}}</p>
+
+</br>
+
+<p>Correct Answer: {{question.correct_answer}}</p>
+<p>Explanation: {{question.explanation}}</p>
+
+{% endautoescape %}
+{% endblock %}

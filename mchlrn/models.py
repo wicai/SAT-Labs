@@ -1,11 +1,38 @@
 from django.db import models
 
-
 #use get_image_path to get images
 def get_image_path(instance, filename):
     return os.path.join('photos', str(instance.id), filename)
 
 #Models defined here:
+ANSWERS = (
+    ('A', 'A'),
+    ('B', 'B'),
+    ('C', 'C'),
+    ('D', 'D'),
+    ('E', 'E'),
+    ('U', 'No Answer'),          
+)
+
+class SATQuestion(models.Model):
+    name = models.CharField(max_length=128)
+    question = models.CharField(max_length=1024)
+    answer_A = models.CharField(max_length=256)
+    answer_B = models.CharField(max_length=256)
+    answer_C = models.CharField(max_length=256)
+    answer_D = models.CharField(max_length=256)
+    answer_E = models.CharField(max_length=256)
+    #A - E
+    correct_answer = models.CharField(max_length=1, choices=ANSWERS)
+    explanation = models.CharField(max_length=2048, null=True, blank=True)
+    instructions = models.CharField(max_length=512, null=True, blank=True)
+    channel = models.CharField(max_length=128)
+    channel_url = models.CharField(max_length=128, null=True, blank=True)
+    difficulty = models.IntegerField(null=True, blank=True)
+    css = models.CharField(null=True, blank=True, max_length=128)
+    
+    def __unicode__(self):
+        return self.name
 
 #USER DATA DEFINED HERE
 class User(models.Model):
