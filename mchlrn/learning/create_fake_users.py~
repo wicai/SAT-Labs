@@ -1,0 +1,163 @@
+from mchlrn.models import User as usr
+from mchlrn.models import Answered_Sat_Q as asq
+from mchlrn.models import SATQuestion as sq
+
+'''
+0:11, 63
+1:2, 14
+2:7, 54
+3:34, 111
+4:15, 43
+5:0, 25
+6:1, 31
+
+A is for people who are handling the questions with lots of numbers and get all or some of them right, getting none of them wrong
+B is for people who suck with lots of numbers, and get them all wrong
+C is for people who haven't answered any questions
+D is for people who answer one question - we want to see what the predictions are
+'''
+sqlist = sq.objects.all()
+#define the users
+
+#remove all users and answered sat questions
+usrlist = usr.objects.all()
+for i in range(0, len(usrlist)):
+    usrlist[i].delete()
+
+asqlist = asq.objects.all()
+for i in range(0, len(asqlist)):
+    asqlist[i].delete()
+
+#A people
+a1 = usr.objects.create(username = 'ashley astonishing', col_num = -1)
+a1.save()
+a11 = asq.objects.create(unanswered_q = sqlist[0], user=a1, correct = 1)
+a12 = asq.objects.create(unanswered_q = sqlist[2], user=a1, correct = 1)
+a13 = asq.objects.create(unanswered_q = sqlist[3], user=a1, correct = 1)
+a14 = asq.objects.create(unanswered_q = sqlist[4], user=a1, correct = 1)
+a15 = asq.objects.create(unanswered_q = sqlist[5], user=a1, correct = 0)
+a16 = asq.objects.create(unanswered_q = sqlist[6], user=a1, correct = 0)
+a11.save()
+a12.save()
+a13.save()
+a14.save()
+a15.save()
+a16.save()
+
+a2 = usr.objects.create(username = 'aarthur the aardvark', col_num = -1)
+a2.save()
+a21 = asq.objects.create(unanswered_q = sqlist[0], user=a2, correct = 1)
+a22 = asq.objects.create(unanswered_q = sqlist[2], user=a2, correct = 1)
+a23 = asq.objects.create(unanswered_q = sqlist[3], user=a2, correct = 1)
+a24 = asq.objects.create(unanswered_q = sqlist[4], user=a2, correct = 1)
+a25 = asq.objects.create(unanswered_q = sqlist[5], user=a2, correct = 0)
+a26 = asq.objects.create(unanswered_q = sqlist[6], user=a2, correct = 1)
+a21.save()
+a22.save()
+a23.save()
+a24.save()
+a25.save()
+a26.save()
+
+a3 = usr.objects.create(username = 'america', col_num = -1)
+a3.save()
+a33 = asq.objects.create(unanswered_q = sqlist[3], user=a3, correct = 1)
+a34 = asq.objects.create(unanswered_q = sqlist[4], user=a3, correct = 1)
+a35 = asq.objects.create(unanswered_q = sqlist[5], user=a3, correct = 0)
+a36 = asq.objects.create(unanswered_q = sqlist[6], user=a3, correct = 0)
+a33.save()
+a34.save()
+a35.save()
+a36.save()
+
+
+#b people
+b1 = usr.objects.create(username = 'bogdan bogdanovitch', col_num = -1)
+b1.save()
+b11 = asq.objects.create(unanswered_q = sqlist[0], user=b1, correct = 0)
+b12 = asq.objects.create(unanswered_q = sqlist[2], user=b1, correct = 0)
+b13 = asq.objects.create(unanswered_q = sqlist[3], user=b1, correct = 0)
+b14 = asq.objects.create(unanswered_q = sqlist[4], user=b1, correct = 0)
+b11.save()
+b12.save()
+b13.save()
+b14.save()
+
+b2 = usr.objects.create(username = 'bob ma', col_num = -1)
+b2.save()
+b21 = asq.objects.create(unanswered_q = sqlist[0], user=b2, correct = 0)
+b22 = asq.objects.create(unanswered_q = sqlist[2], user=b2, correct = 0)
+b23 = asq.objects.create(unanswered_q = sqlist[3], user=b2, correct = 0)
+b24 = asq.objects.create(unanswered_q = sqlist[5], user=b2, correct = 1)
+b21.save()
+b22.save()
+b23.save()
+b24.save()
+
+b3 = usr.objects.create(username = 'billy bam', col_num = -1)
+b3.save()
+b31 = asq.objects.create(unanswered_q = sqlist[0], user=b3, correct = 0)
+b32 = asq.objects.create(unanswered_q = sqlist[2], user=b3, correct = 0)
+b33 = asq.objects.create(unanswered_q = sqlist[3], user=b3, correct = 0)
+b34 = asq.objects.create(unanswered_q = sqlist[5], user=b3, correct = 1)
+b35 = asq.objects.create(unanswered_q = sqlist[6], user=b3, correct = 1)
+b31.save()
+b32.save()
+b33.save()
+b34.save()
+b35.save()
+
+b4 = usr.objects.create(username = 'bogdan bogdanovitch', col_num = -1)
+b4.save()
+b41 = asq.objects.create(unanswered_q = sqlist[0], user=b4, correct = 0)
+b42 = asq.objects.create(unanswered_q = sqlist[2], user=b4, correct = 0)
+b43 = asq.objects.create(unanswered_q = sqlist[3], user=b4, correct = 0)
+b44 = asq.objects.create(unanswered_q = sqlist[4], user=b4, correct = 0)
+b41.save()
+b42.save()
+b43.save()
+b44.save()
+
+#c people
+c1 = usr.objects.create(username = 'chatchy chatch', col_num = -1)
+c1.save()
+
+#d people
+d1 = usr.objects.create(username = 'dirk dagger', col_num = -1)
+d1.save()
+d11 = asq.objects.create(unanswered_q = sqlist[0], user=d1, correct = 1)
+d11.save()
+
+d2 = usr.objects.create(username = 'dazzle', col_num = -1)
+d2.save()
+d21 = asq.objects.create(unanswered_q = sqlist[1], user=d1, correct = 1)
+d21.save()
+
+d3 = usr.objects.create(username = 'dick', col_num = -1)
+d3.save()
+d31 = asq.objects.create(unanswered_q = sqlist[2], user=d1, correct = 1)
+d31.save()
+
+d4 = usr.objects.create(username = 'dalai dolama', col_num = -1)
+d4.save()
+d41 = asq.objects.create(unanswered_q = sqlist[3], user=d1, correct = 1)
+d41.save()
+
+d5 = usr.objects.create(username = 'dragon', col_num = -1)
+d5.save()
+d51 = asq.objects.create(unanswered_q = sqlist[4], user=d1, correct = 1)
+d51.save()
+
+d6 = usr.objects.create(username = 'dominate deer', col_num = -1)
+d6.save()
+d61 = asq.objects.create(unanswered_q = sqlist[5], user=d1, correct = 1)
+d61.save()
+
+d7 = usr.objects.create(username = 'dayum dude', col_num = -1)
+d7.save()
+d71 = asq.objects.create(unanswered_q = sqlist[6], user=d1, correct = 1)
+d71.save()
+
+ 
+
+

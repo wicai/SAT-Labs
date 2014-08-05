@@ -1,0 +1,15 @@
+#usr/bin/env python
+#takes SATQuestions and creates instances of class Sat_Q_Processed(models.Model), storing them in the database
+from mchlrn.models import Sat_Q_Processed as sqp
+from mchlrn.models import SATQuestions as sq
+
+sqlist = sq.objects.all()
+
+for s in sqlist:
+    num = countNums(s.question)
+    p = sqp.objects.create(orig_q = s, num_numbers = num)
+
+def countNums(a): #counts the number of numbers in the string a #todo get jeff's stuff
+    temp = list(a)
+    temp = filter(lambda x: x in '1234567890', temp)
+    return len(temp)

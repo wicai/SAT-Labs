@@ -15,6 +15,7 @@ ANSWERS = (
 )
 
 class SATQuestion(models.Model):
+#template: sq.objects.create(name = '', question = '', answer_A = '', answer_B = '', answer_C = '', answer_D = '', answer_E = '', correct_answer = '', explanation = '', instructions = '', channel = '', channel_url = '', difficulty = '', css = '')
     name = models.CharField(max_length=128)
     question = models.CharField(max_length=1024)
     answer_A = models.CharField(max_length=256)
@@ -44,7 +45,45 @@ class Answered_Math_Q(models.Model):
     user = models.ForeignKey(User)
     correct = models.IntegerField() # 0 is wrong, 1 is correct
 
+class Answered_Sat_Q(models.Model):
+    unanswered_q = models.ForeignKey('SATQuestion')
+    user = models.ForeignKey(User)
+    correct = models.IntegerField()
 #NEURAL NETWORKS DEFINED HERE
+
+#one layer theta for neural network for Jeff's spiffy new SAT question
+class Sat_Pred(models.Model):
+    #placeholder (i have no idea what this is)
+    a = 5
+
+class Sat_Pred_Row(models.Model):
+    row = models.IntegerField()
+    matrix = models.ForeignKey(Sat_Pred)
+
+class Sat_Pred_Item(models.Model):
+    row = models.ForeignKey(Sat_Pred_Row)
+    col = models.IntegerField()
+    val = models.FloatField()
+
+class Sat_Theta(models.Model):
+    #placeholder
+    a = 5
+
+class Sat_Theta_Row(models.Model):
+    row = models.IntegerField()
+    matrix = models.ForeignKey(Sat_Theta)
+
+class Sat_Theta_Item(models.Model):
+    row = models.ForeignKey(Sat_Theta_Row)
+    col = models.IntegerField()
+    val = models.FloatField()
+
+#PROCESSED QUESTIONS:
+class Sat_Q_Processed(models.Model):
+    orig_q = models.OneToOneField('SATQuestion')
+    col_num = models.IntegerField()
+    length = models.IntegerField()
+    num_numbers = models.IntegerField()
 
 #one layer theta for neural network for math
 class Math_Pred(models.Model):

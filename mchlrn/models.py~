@@ -1,41 +1,120 @@
 from django.db import models
 
-
 #use get_image_path to get images
 def get_image_path(instance, filename):
     return os.path.join('photos', str(instance.id), filename)
 
-
-
 #Models defined here:
+ANSWERS = (
+    ('A', 'A'),
+    ('B', 'B'),
+    ('C', 'C'),
+    ('D', 'D'),
+    ('E', 'E'),
+    ('U', 'No Answer'),          
+)
+
+class SATQuestion(models.Model):
+#template: sq.objects.create(name = '', question = '', answer_A = '', answer_B = '', answer_C = '', answer_D = '', answer_E = '', correct_answer = '', explanation = '', instructions = '', channel = '', channel_url = '', difficulty = '', css = '')
+    name = models.CharField(max_length=128)
+    question = models.CharField(max_length=1024)
+    answer_A = models.CharField(max_length=256)
+    answer_B = models.CharField(max_length=256)
+    answer_C = models.CharField(max_length=256)
+    answer_D = models.CharField(max_length=256)
+    answer_E = models.CharField(max_length=256)
+    #A - E
+    correct_answer = models.CharField(max_length=1, choices=ANSWERS)
+    explanation = models.CharField(max_length=2048, null=True, blank=True)
+    instructions = models.CharField(max_length=512, null=True, blank=True)
+    channel = models.CharField(max_length=128)
+    channel_url = models.CharField(max_length=128, null=True, blank=True)
+    difficulty = models.IntegerField(null=True, blank=True)
+    css = models.CharField(null=True, blank=True, max_length=128)
+    
+    def __unicode__(self):
+        return self.name
+
 #USER DATA DEFINED HERE
 class User(models.Model):
     col_num = models.IntegerField()
-    username = models.charField(models.Model)
-    
+    username = models.CharField(max_length=256)
     
 class Answered_Math_Q(models.Model):
-    unanswered_q = models.OneToOneField(Math_Q)
+    unanswered_q = models.OneToOneField('Math_Q')
     user = models.ForeignKey(User)
     correct = models.IntegerField() # 0 is wrong, 1 is correct
 
+class Answered_Sat_Q(models.Model):
+    unanswered_q = models.OneToOneField('SATQuestion')
+    user = models.ForeignKey(User)
+    correct = models.IntegerField()
 #NEURAL NETWORKS DEFINED HERE
 
+#one layer theta for neural network for Jeff's spiffy new SAT question
+class Sat_Pred(models.Model):
+    #placeholder (i have no idea what this is)
+    a = 5
+
+class Sat_Pred_Row(models.Model):
+    row = models.IntegerField()
+    matrix = models.ForeignKey(Sat_Pred)
+
+class Sat_Pred_Item(models.Model):
+    row = models.ForeignKey(Sat_Pred_Row)
+    col = models.IntegerField()
+    val = models.FloatField()
+
+class Sat_Theta(models.Model):
+    #placeholder
+    a = 5
+
+class Sat_Theta_Row(models.Model):
+    row = models.IntegerField()
+    matrix = models.ForeignKey(Sat_Theta)
+
+class Sat_Theta_Item(models.Model):
+    row = models.ForeignKey(Sat_Theta_Row)
+    col = models.IntegerField()
+    val = models.FloatField()
+
+#PROCESSED QUESTIONS:
+class Sat_Q_Processed(models.Model):
+    orig_q = models.OneToOneField('SATQuestion')
+    col_num = models.IntegerField()
+    length = models.IntegerField()
+    num_numbers = models.IntegerField()
+
 #one layer theta for neural network for math
+class Math_Pred(models.Model):
+    #placeholder
+    a = 5
+
+class Math_Pred_Row(models.Model):
+    row = models.IntegerField()
+    matrix = models.ForeignKey(Math_Pred)
+
+class Math_Pred_Item(models.Model):
+    row = models.ForeignKey(Math_Pred_Row)
+    col = models.IntegerField()
+    val = models.FloatField()
+
 class Math_Theta(models.Model):
+    #placeholder
+    a = 5
 
 class Math_Theta_Row(models.Model):
     row = models.IntegerField()
-    matrix = models.ForeignKey(Math_Theta_1)
+    matrix = models.ForeignKey(Math_Theta)
 
 class Math_Theta_Item(models.Model):
-    row = models.ForeignKey(Math_Theta_1_row)
+    row = models.ForeignKey(Math_Theta_Row)
     col = models.IntegerField()
     val = models.FloatField()
 
 #PROCESSED QUESTIONS:
 class Math_Q_Processed(models.Model):
-    orig_q = models.OneToOneField(Math_Q)
+    orig_q = models.OneToOneField('Math_Q')
     col_num = models.IntegerField()
     length = models.IntegerField()
     num_numbers = models.IntegerField()
@@ -52,7 +131,7 @@ class Math_Q(models.Model): #A math question.  If it has a diagram, can be found
 
 class Math_Diagram(models.Model): #the diagram of a math question
     question = models.ForeignKey(Math_Q)
-    diagram = ImageField(upload_to = get_image_path, blank = TRUE, null = TRUE) #http://stackoverflow.com/questions/8189800/django-store-user-image-in-model
+    diagram = models.ImageField(upload_to = get_image_path, blank=True, null=True) #http://stackoverflow.com/questions/8189800/django-store-user-image-in-model
 
 class Math_A(models.Model):
     q = models.ForeignKey(Math_Q)

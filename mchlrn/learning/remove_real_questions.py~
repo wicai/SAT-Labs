@@ -1,0 +1,8 @@
+from mchlrn.models import Sat_Q_Processed as sqp
+from mchlrn.models import SATQuestion as sq
+
+real_qs = sq.objects.filter(channel = "fake")
+for a in sqp.objects.filter(orig_q in real_qs): # is an processed unfake question
+    a.delete() #delete the processed question (not the real one!)
+
+
