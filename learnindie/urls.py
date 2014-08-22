@@ -12,4 +12,6 @@ urlpatterns = patterns('',
     (r'^mchlrn/parsePDF/$', 'mchlrn.views.parse_PDF'),
     (r'^mchlrn/questionoftheday/$', 'mchlrn.views.question_of_the_day'),
     (r'^mchlrn/qotdbatch/$', 'mchlrn.views.qotd_batch'), 
+
+    (r'^mchlrn/batch4tests/$', 'mchlrn.views.batch_4tests'), 
 )

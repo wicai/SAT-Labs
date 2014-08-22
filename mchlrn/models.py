@@ -14,15 +14,26 @@ ANSWERS = (
     ('U', 'No Answer'),          
 )
 
+CATEGORIES = (
+    ('Math', 'Math'),
+    ('Reading', 'Reading'),
+    ('Writing', 'Writing'),        
+)
+
 class SATQuestion(models.Model):
 #template: sq.objects.create(name = '', question = '', answer_A = '', answer_B = '', answer_C = '', answer_D = '', answer_E = '', correct_answer = '', explanation = '', instructions = '', channel = '', channel_url = '', difficulty = '', css = '')
     name = models.CharField(max_length=128)
+
     question = models.CharField(max_length=1024)
-    answer_A = models.CharField(max_length=256)
-    answer_B = models.CharField(max_length=256)
-    answer_C = models.CharField(max_length=256)
-    answer_D = models.CharField(max_length=256)
-    answer_E = models.CharField(max_length=256)
+
+    #Note: blank answers are used when only selecting A, B, etc. is necessary
+    #In some cases (i.e. collegeboard's SAT question of the day, this appears in the data as &nbsp)
+    answer_A = models.CharField(max_length=256, blank=True, null=True)
+    answer_B = models.CharField(max_length=256, blank=True, null=True)
+    answer_C = models.CharField(max_length=256, blank=True, null=True)
+    answer_D = models.CharField(max_length=256, blank=True, null=True)
+    answer_E = models.CharField(max_length=256, blank=True, null=True)
+
     #A - E
     correct_answer = models.CharField(max_length=1, choices=ANSWERS)
     explanation = models.CharField(max_length=2048, null=True, blank=True)
@@ -32,6 +43,11 @@ class SATQuestion(models.Model):
     difficulty = models.IntegerField(null=True, blank=True)
     css = models.CharField(null=True, blank=True, max_length=128)
     
+    #Math, Reading, Writing
+    category = models.CharField(max_length=16, null=True, blank=True, choices=CATEGORIES)
+    #Improving sentences, passage-based reading, etc.
+    sub_category = models.CharField(max_length=64, null=True, blank=True)
+
     def __unicode__(self):
         return self.name
 
