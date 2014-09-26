@@ -4,16 +4,6 @@ from django.http import Http404
 from django.template import RequestContext
 from django import forms
 
-#pdfs
-from pdfminer.pdfparser import PDFParser
-from pdfminer.pdfdocument import PDFDocument
-from pdfminer.pdfpage import PDFPage
-from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.pdfdevice import PDFDevice
-from pdfminer.layout import LAParams
-from pdfminer.converter import TextConverter 
-from StringIO import StringIO
-
 #selenium
 from selenium import webdriver
 from selenium.webdriver.support import ui
