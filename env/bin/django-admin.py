@@ -1,4 +1,4 @@
-#!/Users/williamcai/satproject/env/bin/python
+#!/Users/Jefferson/Documents/django_work/sat/project-sat/env/bin/python
 from django.core import management
 
 if __name__ == "__main__":
