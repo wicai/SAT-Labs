@@ -242,7 +242,7 @@ def batch_4tests(request):
 def question_of_the_day(request):
     #20130601 earliest day...
     #navigating to page
-    driver = webdriver.PhantomJS(executable_path='/Users/Jefferson/Documents/MyBestPlan/electra/phantomjs')
+    driver = webdriver.PhantomJS(executable_path='mchlrn/static/phantomjs/phantomjs_mac')
     today = date.today()
     start_date = today
     end_date = today

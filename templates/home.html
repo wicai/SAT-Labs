@@ -1,27 +1,9 @@
 {% extends "base_site.html" %}
 {% load i18n %}
 {% load staticfiles %}
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}" />
-<style type="text/css">
-   span.note {color: gray}
-   input.link {
-     border:none;
-    color:#5B80B2;
-    text-decoration:none;
-    background: none;
-    padding: 0;
-    margin:0
-   }
-   label.invoice_date
-     {color: gray}
-   #invoice_date
-     {width:6.5em; color: gray}
-</style>
-{% endblock %}
-{% block title %}{% endblock %}
-{% block coltype %}colMS{% endblock %}
 
-{% block bodyclass %}dashboard{% endblock %}
+{% block title %}{% endblock %}
+
 {% block content %}
 
 <h1>SAT Project</h2>
