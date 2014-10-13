@@ -14,4 +14,3 @@ sq.objects.create(name = 'lots of numbers 5', question = '8 2 10/5 2 58 88 8 8 8
 sq.objects.create(name = 'no numbers', question = 'why am i up late at night', answer_A = 'because i procrastinate', answer_B = 'because im tryna get shit done', answer_C = 'so tired', answer_D = 'what', answer_E = 'all of the above', correct_answer = 'E', explanation = 'idk', instructions = 'BANGIN ON TABLETOPS NO SUBSTITUTE', channel = 'fake', channel_url = '', css = '')
 
 sq.objects.create(name = 'no numbers (actually theres just one)', question = 'wifey girlfriend and mistress 1', answer_A = 'backstreet freestyle', answer_B = 'because im tryna get shit done', answer_C = 'so tired', answer_D = 'what', answer_E = 'all above', correct_answer = 'A', explanation = 'kendrick lamar', instructions = 'fuck the industry', channel = 'fake', channel_url = '', css = '')
-

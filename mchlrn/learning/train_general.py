@@ -29,15 +29,13 @@ def train():
     problem_list = SQP.objects.all()
     u_list = USR.objects.all()
     npr = len(problem_list)  #dangerously close to np = numpy
-    nx = len(get_model_fields(SQP)) + 1 #number of features we are checking w the matrix + 1 for bias
-    user_list = USR.objects.all()
+    nx = len(get_model_fields(SQP)) -3 + 1 #number of features we are checking w the matrix + 1 for bias.  -3 is for self, colnum and orig_q
     nu = u_list.count()
     # create matrices
     r = np.zeros(npr * nu).reshape(npr, nu) #question answered is 1, not answered is 0
-    y = np.zeros(npr * nu).reshape(npr, nu) - 1
+    y = np.zeros(npr * nu).reshape(npr, nu) - 1 #default value is -1
     prob_feature = np.zeros(nx * npr).reshape(nx, npr)
     theta = np.random.random((nx, nu))
-
     # load databases into matrices
     #prob_feature, npr x nx
     i = 0
@@ -47,21 +45,29 @@ def train():
         prob_feature[2, i] = p.num_numbers
         p.col_num = i
         i+=1
-
-    #y, npr x  nu
-    i = 0
-    for u in user_list:
-        u.col_num = i
+        p.save()
+    
+    #y, npr x  nu, and r, same dimension
+    uind = 0
+    for u in u_list:
+        u.col_num = uind
+        u.save()
         a_list = ASQ.objects.filter(user = u)
         for a in a_list:
-            print (a.unanswered_q.channel)
             proc = SQP.objects.filter(orig_q = a.unanswered_q) #find the processed question that corresponds to this one
             #len proc should always be 0 here
-            y[proc[0].col_num, i] = a.correct
-            r[proc[0].col_num, i] = 1
-        i+=1
+            y[proc[0].col_num, uind] = a.correct
+            r[proc[0].col_num, uind] = 1
+        uind+=1
+
+    #test that r is correct
+    print("r is:")
+    print(r)
+    print("y is:")
+    print(y)
+
     #normalize y
-    mu = np.reshape(np.mean(y,1),(npr,1))
+    mu = np.reshape(np.mean(y*r,1),(npr,1))
     y -= mu #mean normalizationizedered!
 
     #theta is already randomized and initialized

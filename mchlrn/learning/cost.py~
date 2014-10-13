@@ -1,3 +1,4 @@
+#!usr/bin/env python
 import numpy as np
 
 def cost(theta, y, prob_feature, nu, npr, nx, R, lamb):

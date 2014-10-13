@@ -4,7 +4,7 @@ import numpy as np
 from scipy.optimize import fmin_bfgs
 #learning library
 import cost
-import theta_gradient as gradient
+import theta_gradient as t_gradient
 #models
 from mchlrn.models import Math_Q_Processed as MQP
 from mchlrn.models import Math_Theta as MT
@@ -26,11 +26,11 @@ def train():
     npr = problem_list.count()  #dangerously close to np = numpy
     nx = len(get_model_fields(MQP)) + 1 #number of features we are checking w the matrix + 1 for bias
     user_list = User.objects.all()
-    nu = u_list.count()
+    nu = user_list.count()
     # create matrices
-    r = np.zero(npr * nu).reshape(npr, nu) #question answered is 1, not answered is 0
-    y = np.zero(npr * nu).reshape(npr, nu) - 1
-    prob_feature = np.zero(nx * npr).reshape(nx, npr)
+    r = np.zeros(npr * nu).reshape(npr, nu) #question answered is 1, not answered is 0
+    y = np.zeros(npr * nu).reshape(npr, nu) - 1
+    prob_feature = np.zeros(nx * npr).reshape(nx, npr)
     theta = np.random.random((nx, nu))
 
     # load databases into matrices
@@ -61,7 +61,8 @@ def train():
 
     #theta is already randomized and initialized
     #time to train theta
-    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,lamb))  #magically optimize theta 
+    lamb = .5
+    theta_opt = fmin_bfgs(cost, theta, fprime = t_gradient.gradient, args=(theta,y,prob_feature,nu,npr,nx,r,lamb))  #magically optimize theta 
     #store theta
     if (MT.objects.all().count() != 0): #gotta remove everything that's there
         for a in MT.objects.all():

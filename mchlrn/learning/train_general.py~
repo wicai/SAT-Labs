@@ -27,43 +27,52 @@ def get_model_fields(model):
 #load the array from the databases
 def train():    
     problem_list = SQP.objects.all()
-    npr = problem_list.count()  #dangerously close to np = numpy
-    nx = len(get_model_fields(SQP)) + 1 #number of features we are checking w the matrix + 1 for bias
-    user_list = USR.objects.all()
+    u_list = USR.objects.all()
+    npr = len(problem_list)  #dangerously close to np = numpy
+    nx = len(get_model_fields(SQP)) -3 + 1 #number of features we are checking w the matrix + 1 for bias.  -3 is for self, colnum and orig_q
     nu = u_list.count()
     # create matrices
     r = np.zeros(npr * nu).reshape(npr, nu) #question answered is 1, not answered is 0
-    y = np.zeros(npr * nu).reshape(npr, nu) - 1
-    prob_feature = np.zero(nx * npr).reshape(nx, npr)
+    y = np.zeros(npr * nu).reshape(npr, nu) - 1 #default value is -1
+    prob_feature = np.zeros(nx * npr).reshape(nx, npr)
     theta = np.random.random((nx, nu))
-
     # load databases into matrices
     #prob_feature, npr x nx
     i = 0
     prob_feature[0,:] = 1 #bias term
     for p in problem_list:
         prob_feature[1, i] = p.length
-        prob_feature[2, i] = p.num_num
+        prob_feature[2, i] = p.num_numbers
         p.col_num = i
-        i++
-
-    #y, npr x  nu
-    i = 0
-    for u in user_list:
-        u.col_num = i
+        i+=1
+        p.save()
+    
+    #y, npr x  nu, and r, same dimension
+    uind = 0
+    for u in u_list:
+        u.col_num = uind
+        u.save()
         a_list = ASQ.objects.filter(user = u)
         for a in a_list:
-            proc = SQP.objects.filter(orig_q = a.unanswered_q)
-            y[proc.col_num, i] = a.correct
-            r[proc.col_num, i] = 1
-        i++
+            proc = SQP.objects.filter(orig_q = a.unanswered_q) #find the processed question that corresponds to this one
+            #len proc should always be 0 here
+            y[proc[0].col_num, uind] = a.correct
+            r[proc[0].col_num, uind] = 1
+        uind+=1
+
+    #test that r is correct
+    print("r is:")
+    print(r)
+    print("y is:")
+    print(y)
+
     #normalize y
-    mu = np.reshape(np.mean(y,1),(npr,1))
+    mu = np.reshape(np.mean(y*r,1),(npr,1))
     y -= mu #mean normalizationizedered!
 
     #theta is already randomized and initialized
     #time to train theta
-    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,lamb))  #magically optimize theta 
+    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
     #store theta
     if (ST.objects.all().count() != 0): #gotta remove everything that's there
         for a in ST.objects.all():
