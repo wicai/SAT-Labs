@@ -1,7 +1,7 @@
 #TODO: test
 #public libraries
 import numpy as np
-from scipy.optimize import fmin_bfgs
+import scipy.optimize as opt
 #learning library
 from mchlrn.learning.cost import cost
 from mchlrn.learning.theta_gradient import gradient
@@ -72,7 +72,9 @@ def train():
 
     #theta is already randomized and initialized
     #time to train theta
-    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
+#    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
+
+    theta = opt.minimize(cost, theta, args = (theta,y,prob_feature,nu,npr,nx,r,.5), method = 'BFGS', jac = gradient)
     #store theta
     if (ST.objects.all().count() != 0): #gotta remove everything that's there
         for a in ST.objects.all():
