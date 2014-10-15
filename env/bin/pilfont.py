@@ -1,4 +1,4 @@
-#!/Users/Jefferson/Documents/django_work/sat/project-sat/env/bin/python
+#!/Users/williamcai/project-sat/env/bin/python
 #
 # The Python Imaging Library
 # $Id$

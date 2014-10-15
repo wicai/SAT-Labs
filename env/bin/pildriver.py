@@ -1,4 +1,4 @@
-#!/Users/Jefferson/Documents/django_work/sat/project-sat/env/bin/python
+#!/Users/williamcai/project-sat/env/bin/python
 """PILdriver, an image-processing calculator using PIL.
 
 An instance of class PILDriver is essentially a software stack machine

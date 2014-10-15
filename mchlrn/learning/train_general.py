@@ -16,8 +16,6 @@ from mchlrn.models import Sat_Pred_Item as SPI
 from mchlrn.models import User as USR
 from mchlrn.models import Answered_Sat_Q as ASQ
 
-#from mchlrn.models import User as USR
-from mchlrn.models import Answered_Math_Q as AMQ
 
 
 #given a model, returns all its fields
@@ -46,6 +44,9 @@ def train():
         p.col_num = i
         i+=1
         p.save()
+    print("problem_feature is")
+    print(prob_feature.shape)
+    print(prob_feature)
     
     #y, npr x  nu, and r, same dimension
     uind = 0
@@ -59,42 +60,81 @@ def train():
             y[proc[0].col_num, uind] = a.correct
             r[proc[0].col_num, uind] = 1
         uind+=1
-
+    print("nu is:")
+    print(nu)
     #test that r is correct
     print("r is:")
     print(r)
     print("y is:")
     print(y)
-
     #normalize y
-    mu = np.reshape(np.mean(y*r,1),(npr,1))
+    mu = np.zeros(npr).reshape(npr,1)
+    for i in range(0, y.shape[0]): #for each question
+        num_zeros = 0.0
+        num_ones = 0.0
+        for ii in range(0, y.shape[1]): #for each user
+            if (y[i][ii] == 1):
+                num_ones += 1
+            if (y[i][ii] == 0):
+                num_zeros += 1
+        if (num_zeros == 0 and num_ones == 0):
+            mu[i][0] = 0.0
+        else:
+            mu[i][0] = num_ones/(num_zeros + num_ones)
+        #change avg score to whatever is in mu
+        cur_prob = SQP(col_num = i)
+        cur_prob.avg_score = mu[i][0]
+        cur_prob.save()
+
+    print("mu is:")
+    print(mu.shape)
+    print(mu)
     y -= mu #mean normalizationizedered!
+    print("now y is:")
+    print(y)
 
     #theta is already randomized and initialized
     #time to train theta
 #    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
 
     theta = opt.minimize(cost, theta, args = (theta,y,prob_feature,nu,npr,nx,r,.5), method = 'BFGS', jac = gradient)
+    if (theta.success == 0):
+        print("might've failed idk why")
+    theta = theta.x.reshape(3,15)
+
+    print('theta')
+    print(theta.shape)
+    print(theta)
+    
     #store theta
     if (ST.objects.all().count() != 0): #gotta remove everything that's there
         for a in ST.objects.all():
             a.delete()
     st = ST.objects.create() #create the new Sat_Theta
+    
     for i in range(0, nx): #for each row of theta
-        theta_row = STR.objects.create(row = i, matrix = mt) #create a Math_Theta_Row
+        theta_row = STR.objects.create(row = i, matrix = st) 
+        theta_row.save()
         for ii in range(0, nu):
             col = STI.objects.create(col = ii, val = theta[i,ii], row = theta_row)
+            col.save()
             
-    pred = np.tranpose(np.tranpose(theta) * X) + mu #user predictions
+    pred = np.transpose(np.dot(np.transpose(theta),prob_feature)) 
+    print("pred is")
+    print(pred.shape)
+    print(pred)
+    #npr x nu
     #store pred
     if (SP.objects.all().count() != 0): #gotta remove everything that's there
         for a in SP.objects.all():
             a.delete()
-    mp = SP.objects.create() #create the new Math_Pred
-    for i in range(0, npr): #for each row of theta
-        pred_row = SPR.objects.create(row = i, matrix = mp) #create a Math_Pred_Row
+    sp = SP.objects.create() #create the new SAT_Pred
+    for i in range(0, npr): #for each problem
+        pred_row = SPR.objects.create(row = i, matrix = sp) #create a SAT_PRED_ROW
+        pred_row.save()
         for ii in range(0, nu):
-            col = SPI.objects.create(col = ii, val = theta[i,ii], row = pred_row)
+            col = SPI.objects.create(col = ii, val = pred[i,ii], row = pred_row)
+            col.save()
 
     
               

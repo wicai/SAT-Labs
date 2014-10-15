@@ -100,6 +100,7 @@ class Sat_Q_Processed(models.Model):
     col_num = models.IntegerField()
     length = models.IntegerField()
     num_numbers = models.IntegerField()
+    avg_score = models.FloatField()
 
 #one layer theta for neural network for math
 class Math_Pred(models.Model):

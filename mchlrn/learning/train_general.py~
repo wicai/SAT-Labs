@@ -1,7 +1,7 @@
 #TODO: test
 #public libraries
 import numpy as np
-from scipy.optimize import fmin_bfgs
+import scipy.optimize as opt
 #learning library
 from mchlrn.learning.cost import cost
 from mchlrn.learning.theta_gradient import gradient
@@ -67,32 +67,52 @@ def train():
     print(y)
 
     #normalize y
+    mu = 
     mu = np.reshape(np.mean(y*r,1),(npr,1))
+    print("mu is:")
+    print(mu.shape())
+    print(mu)
     y -= mu #mean normalizationizedered!
 
     #theta is already randomized and initialized
     #time to train theta
-    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
+#    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
+
+    theta = opt.minimize(cost, theta, args = (theta,y,prob_feature,nu,npr,nx,r,.5), method = 'BFGS', jac = gradient)
+    if (theta.success == 0):
+        print("might've failed idk why")
+    theta = theta.x.reshape(3,15)
+
+    print('theta')
+#    print(theta.shape())
+    print(theta)
+    
     #store theta
     if (ST.objects.all().count() != 0): #gotta remove everything that's there
         for a in ST.objects.all():
             a.delete()
     st = ST.objects.create() #create the new Sat_Theta
+    
     for i in range(0, nx): #for each row of theta
-        theta_row = STR.objects.create(row = i, matrix = mt) #create a Math_Theta_Row
+        theta_row = STR.objects.create(row = i, matrix = st) 
+        theta_row.save()
         for ii in range(0, nu):
             col = STI.objects.create(col = ii, val = theta[i,ii], row = theta_row)
+            col.save()
             
-    pred = np.tranpose(np.tranpose(theta) * X) + mu #user predictions
+    pred = np.transpose(theta * np.transpose(y)) + mu #user predictions
+    #npr x nu
     #store pred
     if (SP.objects.all().count() != 0): #gotta remove everything that's there
         for a in SP.objects.all():
             a.delete()
-    mp = SP.objects.create() #create the new Math_Pred
-    for i in range(0, npr): #for each row of theta
-        pred_row = SPR.objects.create(row = i, matrix = mp) #create a Math_Pred_Row
+    sp = SP.objects.create() #create the new SAT_Pred
+    for i in range(0, npr): #for each problem
+        pred_row = SPR.objects.create(row = i, matrix = sp) #create a Math_Pred_Row
+        pred_row.save()
         for ii in range(0, nu):
             col = SPI.objects.create(col = ii, val = theta[i,ii], row = pred_row)
+            col.save()
 
     
               

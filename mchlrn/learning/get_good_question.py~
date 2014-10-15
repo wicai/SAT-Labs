@@ -1,0 +1,1 @@
+from mchlrn.models import User as USR
