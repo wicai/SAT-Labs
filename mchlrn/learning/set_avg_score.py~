@@ -1,0 +1,10 @@
+#!usr/bin/env python
+from mchlrn.models import Sat_Q_Processed as SQP
+from mchlrn.models import Answered_Sat_Q as ASQ
+
+#get all SQP
+
+#get all ASQ
+#for each SQP, go through ASQ which has it, sum asq.correct, divide by total number, put that in sqp.avg_score
+
+
