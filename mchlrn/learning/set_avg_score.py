@@ -3,8 +3,6 @@ from mchlrn.models import Sat_Q_Processed as SQP
 from mchlrn.models import Answered_Sat_Q as ASQ
 from mchlrn.models import SATQuestion as SQ
 
-
-
 def set_avg():
     all_sqp = SQP.objects.all()
     all_asq = ASQ.objects.all()

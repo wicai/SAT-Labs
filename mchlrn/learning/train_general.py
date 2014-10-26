@@ -16,8 +16,6 @@ from mchlrn.models import Sat_Pred_Item as SPI
 from mchlrn.models import User as USR
 from mchlrn.models import Answered_Sat_Q as ASQ
 
-
-
 #given a model, returns all its fields
 def get_model_fields(model):
     return model._meta.fields
@@ -100,6 +98,7 @@ def train():
     theta = opt.minimize(cost, theta, args = (theta,y,prob_feature,nu,npr,nx,r,.5), method = 'BFGS', jac = gradient)
     if (theta.success == 0):
         print("might've failed idk why")
+        print(theta.message)
     print (theta.x.shape)
     theta = theta.x.reshape(nx,nu)
 

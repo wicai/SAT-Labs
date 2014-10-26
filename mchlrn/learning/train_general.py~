@@ -82,7 +82,7 @@ def train():
         else:
             mu[i][0] = num_ones/(num_zeros + num_ones)
         #change avg score to whatever is in mu
-        cur_prob = SQP(col_num = i)
+        cur_prob = SQP.objects.filter(col_num = i)[0]
         cur_prob.avg_score = mu[i][0]
         cur_prob.save()
 
@@ -96,11 +96,13 @@ def train():
     #theta is already randomized and initialized
     #time to train theta
 #    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
-
+    print(theta.shape)
     theta = opt.minimize(cost, theta, args = (theta,y,prob_feature,nu,npr,nx,r,.5), method = 'BFGS', jac = gradient)
     if (theta.success == 0):
         print("might've failed idk why")
-    theta = theta.x.reshape(3,15)
+        print(theta.message)
+    print (theta.x.shape)
+    theta = theta.x.reshape(nx,nu)
 
     print('theta')
     print(theta.shape)
