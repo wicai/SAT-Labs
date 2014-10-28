@@ -13,7 +13,7 @@ from mchlrn.models import Sat_Theta_Item as STI
 from mchlrn.models import Sat_Pred as SP
 from mchlrn.models import Sat_Pred_Row as SPR
 from mchlrn.models import Sat_Pred_Item as SPI
-from mchlrn.models import User as USR
+from mchlrn.models import UserData as USR
 from mchlrn.models import Answered_Sat_Q as ASQ
 
 #given a model, returns all its fields

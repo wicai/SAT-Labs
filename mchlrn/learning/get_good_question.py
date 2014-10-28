@@ -1,4 +1,4 @@
-from mchlrn.models import User as USR
+from mchlrn.models import UserData as USR
 from mchlrn.models import Sat_Q_Processed as SQP
 from mchlrn.models import Sat_Pred as SP
 from mchlrn.models import Sat_Pred_Row as SPR

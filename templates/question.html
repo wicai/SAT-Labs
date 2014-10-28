@@ -1,0 +1,39 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+{% autoescape off %}
+{% load staticfiles %}
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static question.css %}">
+{% endblock %}
+
+<p><b>User:</b> {{user}}</p>
+<p><b>Category:</b> {{question.category}}</p>
+<p><b>Subcategory:</b> {{question.sub_category}}</p>
+
+<p><b>Instructions:</b> {{question.instructions}}</p>
+<p><b>Question:</b> {{question.question}}</p>
+
+<a href="#" class="btn btn-primary">A</a>&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_A}}</p></li>
+<br>
+
+<a href="#" class="btn btn-primary">B</a>&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_B}}</p></li>
+<br>
+
+<a href="#" class="btn btn-primary">C</a>&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_C}}</p></li>
+<br>
+
+<a href="#" class="btn btn-primary">D</a>&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_D}}</p></li>
+<br>
+
+<a href="#" class="btn btn-primary">E</a>&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_E}}</p></li>
+
+</br>
+
+{% endautoescape %}
+{% endblock %}

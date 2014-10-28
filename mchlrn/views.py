@@ -18,6 +18,9 @@ from mchlrn.models import SATQuestion
 import datetime
 from datetime import date, timedelta
 
+#learning
+from mchlrn.learning import get_good_question
+
 def home(request):
 	return render_to_response('home.html')
 
@@ -281,3 +284,9 @@ def parse_PDF(request):
         return render_to_response('genericformprompt.html',
             {'form': form, 'description': 'Select a PDF...', 'enctype':'multipart/form-data'},
             context_instance=RequestContext(request))
+
+def get_question(request):
+    #placeholder
+    question = get_good_question.choose_q(request.user.data)
+    #question = SATQuestion.objects.get(id=9)
+    return render_to_response('question.html', {'question': question, 'user': request.user})

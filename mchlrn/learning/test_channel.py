@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from mchlrn.models import User as usr
+from mchlrn.models import UserData as usr
 from mchlrn.models import Answered_Sat_Q as asq
 from mchlrn.models import SATQuestion as sq
 

@@ -1,19 +1,22 @@
 {% extends "base_site.html" %}
 {% load i18n %}
-{% load staticfiles %}
-
-{% block title %}{% endblock %}
 
 {% block content %}
+<div style="float:right;">
+<a href="/accounts/register/" class="btn btn-primary btn-large"><i class="icon-white icon-heart">
+</i>Register</a>
+<a href="/accounts/login/" class="btn btn-primary btn-large"><i class="icon-white icon-heart">
+</i> Login</a>
+</div>
 
-<h1>SAT Project</h2>
+<div>
+<h1>LearnIndie</h2>
+<h2>The SAT Tutoring Site that Learns from You!</h2>
 
-<h2>Tools</h2>
+<h3>Tools</h3>
 <ul>
-  <li><a href='/mchlrn/questionoftheday/'>Grab Question of the Day from Collegeboard</a></li>
-  <li><a href='/mchlrn/qotdbatch/'>Grab QOTD Batch from Collegeboard</a></li>  
-  <li><a href='/mchlrn/batch4tests/'>Grab Questions (Batch) from 4Tests.com</a></li>  
-  <li><a href='/mchlrn/parsePDF/'>Parse PDF for Questions</a></li>
+  <li><a href='/mchlrn/getquestion/'>Get Question</a></li>
 </ul>
+</div>
 
 {% endblock %}

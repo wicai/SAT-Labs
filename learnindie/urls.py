@@ -14,4 +14,6 @@ urlpatterns = patterns('',
     (r'^mchlrn/qotdbatch/$', 'mchlrn.views.qotd_batch'), 
 
     (r'^mchlrn/batch4tests/$', 'mchlrn.views.batch_4tests'), 
+
+    (r'^mchlrn/getquestion/$', 'mchlrn.views.get_question')
 )

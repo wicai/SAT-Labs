@@ -13,7 +13,7 @@ from mchlrn.models import Math_Theta_Item as MTI
 from mchlrn.models import Math_Pred as MP
 from mchlrn.models import Math_Pred_Row as MPR
 from mchlrn.models import Math_Pred_Item as MPI
-from mchlrn.models import User 
+from mchlrn.models import UserData as User
 from mchlrn.models import Answered_Math_Q as AMQ
 
 #given a model, returns all its fields
