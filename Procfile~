@@ -1,0 +1,1 @@
+web: gunicorn learnindie.wsgi --log-file -
