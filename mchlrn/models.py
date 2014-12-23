@@ -54,7 +54,7 @@ class SATQuestion(models.Model):
 
 #USER DATA DEFINED HERE
 class UserData(models.Model):
-    user = models.OneToOneField(User, unique=True,related_name='data')
+    user = models.OneToOneField(User, unique=True ,related_name='data')
     col_num = models.IntegerField()
     
 class Answered_Math_Q(models.Model):

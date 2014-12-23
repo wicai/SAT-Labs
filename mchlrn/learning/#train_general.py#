@@ -24,14 +24,17 @@ def get_model_fields(model):
 def train():    
     problem_list = SQP.objects.all()
     u_list = USR.objects.all()
-    npr = len(problem_list)  #dangerously close to np = numpy
-    nx = len(get_model_fields(SQP)) -3 + 1 #number of features we are checking w the matrix + 1 for bias.  -3 is for self, colnum and orig_q
-    nu = u_list.count()
+    npr = len(problem_list)  #number of problems
+    nx = len(get_model_fields(SQP)) -3 + 1 #number of features we are considering  w the matrix + 1 for bias.
+    #  -3 is for self, colnum and orig_q
+    nu = u_list.count() #num_users
     # create matrices
     r = np.zeros(npr * nu).reshape(npr, nu) #question answered is 1, not answered is 0
     y = np.zeros(npr * nu).reshape(npr, nu) - 1 #default value is -1
     prob_feature = np.zeros(nx * npr).reshape(nx, npr)
     theta = np.random.random((nx, nu))
+    # the idea is that we want to train theta such that we minimize prob_featureT * theta - y * r
+
     # load databases into matrices
     #prob_feature, npr x nx
     i = 0
@@ -45,7 +48,6 @@ def train():
     print("problem_feature is")
     print(prob_feature.shape)
     print(prob_feature)
-    
     #y, npr x  nu, and r, same dimension
     uind = 0
     for u in u_list:
