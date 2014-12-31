@@ -1,4 +1,0 @@
-#!/usr/bin/env python
-
-def calc_fib(x):
-#calculate the xth fibonacci number, where x > 2

@@ -25,14 +25,15 @@ def train():
     problem_list = SQP.objects.all()
     u_list = USR.objects.all()
     npr = len(problem_list)  #number of problems
-    nx = len(get_model_fields(SQP)) -3 + 1 #number of features we are considering  w the matrix + 1 for bias.
-    #  -3 is for self, colnum and orig_q
+    nx = len(get_model_fields(SQP)) - 4 + 1 #number of features we are considering  w the matrix + 1 for bias.
+    print "number features is {}".format(nx)
+    #  -4 is for self, colnum, orig_q, avg_score
     nu = u_list.count() #num_users
     # create matrices
     r = np.zeros(npr * nu).reshape(npr, nu) #question answered is 1, not answered is 0
-    y = np.zeros(npr * nu).reshape(npr, nu) - 1 #default value is -1
+    y = np.zeros(npr * nu).reshape(npr, nu)
     prob_feature = np.zeros(nx * npr).reshape(nx, npr)
-    theta = np.random.random((nx, nu))
+    theta = np.random.random((nx, nu))/10
     # the idea is that we want to train theta such that we minimize prob_featureT * theta - y * r
     # load databases into matrices
     #prob_feature, npr x nx
@@ -88,21 +89,21 @@ def train():
     print("mu is:")
     print(mu.shape)
     print(mu)
-    y -= mu #mean normalizationizedered!
+    print (mu * r)
+    y -= mu * r
     print("now y is:")
     print(y)
 
     #theta is already randomized and initialized
     #time to train theta
-#    theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
+    #theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
     print(theta.shape)
-    theta = opt.minimize(cost, theta, args = (theta,y,prob_feature,nu,npr,nx,r,.5), method = 'BFGS', jac = gradient)
-    if (theta.success == 0):
-        print("might've failed idk why")
-        print(theta.message)
-    print (theta.x.shape)
-    theta = theta.x.reshape(nx,nu)
+    print(theta)
+    args = (y,prob_feature,nu,npr,nx,r,.5)
+    print(len(args))
+    theta = opt.fmin_bfgs(cost, theta, args = args)
 
+    theta = theta.reshape(nx,nu)
     print('theta')
     print(theta.shape)
     print(theta)
@@ -136,10 +137,6 @@ def train():
         for ii in range(0, nu):
             col = SPI.objects.create(col = ii, val = pred[i,ii], row = pred_row)
             col.save()
-
-    
-              
-
 
 
 
