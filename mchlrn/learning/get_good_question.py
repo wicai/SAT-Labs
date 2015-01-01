@@ -8,7 +8,7 @@ import numpy
 def index_min(values):
     return min(xrange(len(values)),key=values.__getitem__)
 
-def choose_q(a): #a is a usr
+def choose_q(a): #a is a usrdata
 #get the usr col #
     col_num = a.col_num
 #get the appropriate row of SAT_Pred, stick them in an array PRED

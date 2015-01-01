@@ -25,6 +25,7 @@ def choose_q(a): #a is a usr
     diff = []
     for i in range(0, len(pred)):
         diff.append(pred[i] - avg[i])
+    print diff
 #find the highest difference where the user hasn't answered the question yet
     min_index = index_min(diff)
 #return the question
