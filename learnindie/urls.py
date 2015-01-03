@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -15,5 +16,10 @@ urlpatterns = patterns('',
 
     (r'^mchlrn/batch4tests/$', 'mchlrn.views.batch_4tests'), 
 
+
+    (r'^accounts/login/$', auth_views.login), #used to have url in front.  I think auth_views is a magical built in view.  
+    (r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/login'}),
+
     (r'^mchlrn/getquestion/$', 'mchlrn.views.get_question')
+
 )
