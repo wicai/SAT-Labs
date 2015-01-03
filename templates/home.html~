@@ -1,49 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-  <style>
-    #map {
-      width: 800px;
-      height: 500px;
-      border-style:solid;
-      border-width:5px;
-    }
-    body  {
-      background-color:#d0e4fe;
-    }
-    h1  {
-      color:orange;
-      text-align:center;
-      font-size:36px;
-    }
-    h2  {
-      color:blue;
-      text-alight:center;
-      font-size:24px;
-    }
-    p {
-      font-family:"Comic Sans";
-      font-size:18px;
-    color:black;
-    }
-  </style>
-</head>
-<body>
+{% extends "base_site.html" %}
+{% load i18n %}
 
-<h1> Weather it Matters <h1>
-<h2> <center> A Weather/Mood Mapper by William Cai and Haohang Xu </center> </h2>
+{% block content %}
+<div style="float:right;">
+<a href="/accounts/register/" class="btn btn-primary btn-large"><i class="icon-white icon-heart">
+</i>Register</a>
+<a href="/accounts/login/" class="btn btn-primary btn-large"><i class="icon-white icon-heart">
+</i> Login</a>
+</div>
 
-<center><FORM action="/add/" method="post">{% csrf_token %}
-Longitude (-180 to 180): <input type="text" name="longitude">  
-Latitude (-180 to 180): <input type="text" name="latitude">
-<INPUT type="submit" value="Submit"> 
-</FORM>
+<div>
+<h1>LearnIndie</h2>
+<h2>The SAT Tutoring Site that Learns from You!</h2>
 
-  <p> Enter a longitude and latitude and our app will calcuate a happiness coefficient (using data from Twitter),  a weather coefficient <br> (using data from Weather Underground), and a ratio between the two and map it onto an interactive map.</p>
-</center>
+<h3>Tools</h3>
+<ul>
+  <li><a href='/mchlrn/getquestion/'>Get Question</a></li>
+</ul>
+</div>
 
-</body>
-</html>
-
+{% endblock %}

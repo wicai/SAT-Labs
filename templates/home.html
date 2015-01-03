@@ -3,10 +3,15 @@
 
 {% block content %}
 <div style="float:right;">
-<a href="/accounts/register/" class="btn btn-primary btn-large"><i class="icon-white icon-heart">
-</i>Register</a>
-<a href="/accounts/login/" class="btn btn-primary btn-large"><i class="icon-white icon-heart">
-</i> Login</a>
+  <div>
+    {{ user }}
+    {% if user.is_authenticated %}
+    <a href="/accounts/logout/"class="btn btn-primary btn-large"><i class="icon-white icon-heart"></i>Logout</a>
+    {% else %}
+    <a href="/accounts/register/" class="btn btn-primary btn-large"><i class="icon-white icon-heart"></i>Register</a>
+    <a href="/accounts/login/" class="btn btn-primary btn-large"><i class="icon-white icon-heart"></i>Login</a>
+    {% endif %}
+  </div>
 </div>
 
 <div>

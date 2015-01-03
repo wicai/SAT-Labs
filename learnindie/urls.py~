@@ -15,7 +15,10 @@ urlpatterns = patterns('',
     (r'^mchlrn/qotdbatch/$', 'mchlrn.views.qotd_batch'), 
 
     (r'^mchlrn/batch4tests/$', 'mchlrn.views.batch_4tests'), 
+
+
     (r'^accounts/login/$', auth_views.login), #used to have url in front.  I think auth_views is a magical built in view.  
+    (r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     (r'^mchlrn/getquestion/$', 'mchlrn.views.get_question')
 
 )

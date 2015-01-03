@@ -22,10 +22,7 @@ from datetime import date, timedelta
 from mchlrn.learning import get_good_question
 
 def home(request):
-	return render_to_response('home.html')
-
-def display(request):
-	return render_to_response('question.html')
+	return render_to_response('home.html',context_instance=RequestContext(request))
 
 class FileForm(forms.Form):
 	upload_file = forms.FileField()
