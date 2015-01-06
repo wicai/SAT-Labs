@@ -6,3 +6,4 @@ scipy==0.14.0
 selenium==2.43.0
 wsgiref==0.1.2
 gunicorn==19.1.1
+whitenoise==1.0.3
