@@ -113,7 +113,8 @@ def train():
         for a in ST.objects.all():
             a.delete()
     st = ST.objects.create() #create the new Sat_Theta
-    
+    st.save()
+
     for i in range(0, nx): #for each row of theta
         theta_row = STR.objects.create(row = i, matrix = st) 
         theta_row.save()
@@ -131,6 +132,8 @@ def train():
         for a in SP.objects.all():
             a.delete()
     sp = SP.objects.create() #create the new SAT_Pred
+    sp.save()
+
     for i in range(0, npr): #for each problem
         pred_row = SPR.objects.create(row = i, matrix = sp) #create a SAT_PRED_ROW
         pred_row.save()

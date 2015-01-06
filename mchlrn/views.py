@@ -386,6 +386,6 @@ def parse_PDF(request):
 
 def get_question(request):
     #placeholder
-    question = get_good_question.choose_q(request.user.data)
+    question = get_good_question.choose_q(request.user)
     #question = SATQuestion.objects.get(id=9)
     return render_to_response('question.html', {'question': question, 'user': request.user})
