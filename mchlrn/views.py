@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.http import Http404
 from django.template import RequestContext
 from django import forms
+from django.contrib.auth.views import login
 
 #selenium
 from selenium import webdriver
@@ -13,6 +14,8 @@ from selenium.webdriver.common.keys import Keys
 
 #models
 from mchlrn.models import SATQuestion
+from mchlrn.models import UserData
+from django.contrib.auth.models import User
 
 #dates
 import datetime
@@ -23,6 +26,102 @@ from mchlrn.learning import get_good_question
 
 def home(request):
 	return render_to_response('home.html',context_instance=RequestContext(request))
+
+"""
+def log_me_in(request):
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user=authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+			        #redirect to success page TODO: make a success page
+				return HttpResponseRedirect('/')
+			else:
+				print "account disabled"
+			#todo lol probably needs to actually return something real
+				return HttpResponseRedirect('/')
+		else:
+			print "not valid"
+			return HttpResponseRedirect('/')
+	#else its GET
+	template_name='registration/login.html'
+	form=
+	return render_to_response('registration/login.html',
+                                          dict(userform=uf),
+                                          context_instance=RequestContext(request))
+
+"""
+"""
+@sensitive_post_parameters()
+@csrf_protect
+@never_cache
+def login(request, template_name='registration/login.html',
+          redirect_field_name=REDIRECT_FIELD_NAME,
+          authentication_form=AuthenticationForm,
+          current_app=None, extra_context=None):
+
+
+
+    redirect_to = request.POST.get(redirect_field_name,
+                                   request.GET.get(redirect_field_name, ''))
+
+    if request.method == "POST":
+        form = authentication_form(request, data=request.POST)
+        if form.is_valid():
+
+            # Ensure the user-originating redirection url is safe.
+            if not is_safe_url(url=redirect_to, host=request.get_host()):
+                redirect_to = resolve_url(settings.LOGIN_REDIRECT_URL)
+
+            # Okay, security check complete. Log the user in.
+            auth_login(request, form.get_user())
+
+            return HttpResponseRedirect(redirect_to)
+    else:
+        form = authentication_form(request)
+
+    current_site = get_current_site(request)
+
+    context = {
+        'form': form,
+        redirect_field_name: redirect_to,
+        'site': current_site,
+        'site_name': current_site.name,
+    }
+    if extra_context is not None:
+        context.update(extra_context)
+
+    if current_app is not None:
+        request.current_app = current_app
+
+    return TemplateResponse(request, template_name, context)
+    """
+
+class UserForm(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ['username', 'password']
+	#I think the save should be a method in here, but it kept breaking so I put it in register
+
+def register(request, template_name='registration/register.html', 
+	     current_app=None, extra_Content=None):
+
+	if request.method == 'POST':
+		uf = UserForm(request.POST)
+		if uf.is_valid():
+			new_user = User.objects.create_user(**uf.cleaned_data)
+			new_user.save()
+			userdata = UserData.objects.create(user=new_user, col_num=-1)
+			userdata.save()
+		return HttpResponseRedirect('/')
+	else:
+		uf = UserForm()
+		return render_to_response('registration/register.html',
+					  dict(userform=uf),
+					  context_instance=RequestContext(request))
+
 
 class FileForm(forms.Form):
 	upload_file = forms.FileField()
