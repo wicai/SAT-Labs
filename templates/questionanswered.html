@@ -14,41 +14,27 @@
 <p><b>Instructions:</b> {{question.instructions}}</p>
 <p><b>Question:</b> {{question.question}}</p>
 
-<form method="POST" action="">{% csrf_token %}
-
-<input type="hidden" name="question" value="{{question.id}}">
-
-<input type='submit' name='answer' class="btn btn-primary" value='A'>
-&nbsp;&nbsp;
-<p style="display:inline-block">{{question.answer_A}}</p></li>
-</input>
-<br>
-
-<input type='submit' name='answer' class="btn btn-primary" value='B'>
-&nbsp;&nbsp;
+<a href="#" class="btn btn-primary">B</a>&nbsp;&nbsp;
 <p style="display:inline-block">{{question.answer_B}}</p></li>
-</input>
 <br>
 
-<input type='submit' name='answer' class="btn btn-primary" value='C'>
-&nbsp;&nbsp;
+<a href="#" class="btn btn-primary">C</a>&nbsp;&nbsp;
 <p style="display:inline-block">{{question.answer_C}}</p></li>
-</input>
 <br>
 
-<input type='submit' name='answer' class="btn btn-primary" value='D'>
-&nbsp;&nbsp;
+<a href="#" class="btn btn-primary">D</a>&nbsp;&nbsp;
 <p style="display:inline-block">{{question.answer_D}}</p></li>
-</input>
 <br>
 
-<input type='submit' name='answer' class="btn btn-primary" value='E'>
-&nbsp;&nbsp;
+<a href="#" class="btn btn-primary">E</a>&nbsp;&nbsp;
 <p style="display:inline-block">{{question.answer_E}}</p></li>
-</input>
 </br>
 
-</form>
+<br>
+
+<p>You answered: <b>{{answer}}</b></p>
+<p>The correct answer is: <b>{{question.correct_answer}}</b></p>
+<p><b>Explanation:</b> {{question.explanation}}</p>
 
 {% endautoescape %}
 {% endblock %}

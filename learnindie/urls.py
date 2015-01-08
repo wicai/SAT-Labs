@@ -19,6 +19,5 @@ urlpatterns = patterns('',
     (r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}), #goes back to home page
     (r'^accounts/register/$', 'mchlrn.views.register'),                   
 
-    (r'^mchlrn/getquestion/$', 'mchlrn.views.get_question')
-
+    (r'^mchlrn/getquestion/$', 'mchlrn.views.get_question'),
 )

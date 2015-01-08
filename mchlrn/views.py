@@ -384,8 +384,20 @@ def parse_PDF(request):
             {'form': form, 'description': 'Select a PDF...', 'enctype':'multipart/form-data'},
             context_instance=RequestContext(request))
 
+#get question for user (and deal with answered question)
 def get_question(request):
-    #placeholder
-    question = get_good_question.choose_q(request.user)
-    #question = SATQuestion.objects.get(id=9)
-    return render_to_response('question.html', {'question': question, 'user': request.user})
+    #question was answered 
+    if request.method == "POST":
+        answer = request.POST['answer']
+        question_id = request.POST['question']
+        question = SATQuestion.objects.get(id=question_id)
+        return render_to_response('questionanswered.html', 
+            {'question': question, 'user': request.user, 'answer': answer})
+    #we ask a question
+    else:
+        question = get_good_question.choose_q(request.user)
+        #question = SATQuestion.objects.get(id=9)
+        return render_to_response('question.html', 
+            {'question': question, 'user': request.user},
+            context_instance=RequestContext(request))
+
