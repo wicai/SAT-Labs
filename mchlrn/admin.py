@@ -1,4 +1,4 @@
-from mchlrn.models import SATQuestion, Sat_Q_Processed
+from mchlrn.models import SATQuestion, Sat_Q_Processed, Answered_Sat_Q
 from django.contrib import admin
 from django.contrib.auth.models import User
 from mchlrn.models import UserData
@@ -15,6 +15,7 @@ class UserAdmin(admin.ModelAdmin):
 	UserDataInline,
 	]
 
+admin.site.register(Answered_Sat_Q)
 admin.site.register(SATQuestion, SATQuestionAdmin)
 admin.site.register(Sat_Q_Processed)
 admin.site.register(UserData)

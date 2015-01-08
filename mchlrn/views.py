@@ -14,6 +14,7 @@ from selenium.webdriver.common.keys import Keys
 
 #models
 from mchlrn.models import SATQuestion
+from mchlrn.models import Answered_Sat_Q
 from mchlrn.models import UserData
 from django.contrib.auth.models import User
 
@@ -388,16 +389,35 @@ def parse_PDF(request):
 def get_question(request):
     #question was answered 
     if request.method == "POST":
+        #grab answer and question id from POST data
         answer = request.POST['answer']
         question_id = request.POST['question']
+        user_id = request.POST['user']
+
+        current_user = User.objects.get(id=user_id)
+
         question = SATQuestion.objects.get(id=question_id)
+        #create Answered SAT Question object
+        aq = Answered_Sat_Q()
+        aq.unanswered_q = question
+        aq.user = UserData.objects.get(user__id=user_id)
+        if answer == question.correct_answer:
+            aq.correct = 1
+        else:
+            aq.correct = 0
+        aq.save()
         return render_to_response('questionanswered.html', 
-            {'question': question, 'user': request.user, 'answer': answer})
+            {'question': question, 'user': current_user, 'answer': answer})
     #we ask a question
     else:
-        question = get_good_question.choose_q(request.user)
+        if request.user.is_authenticated():
+            current_user = request.user
+        else:
+            #if anonymous user, use the admin account "will" for default/testing
+            current_user = User.objects.get(username="will")
+        question = get_good_question.choose_q(current_user)
         #question = SATQuestion.objects.get(id=9)
         return render_to_response('question.html', 
-            {'question': question, 'user': request.user},
+            {'question': question, 'user': current_user},
             context_instance=RequestContext(request))
 
