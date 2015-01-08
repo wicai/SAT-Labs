@@ -3,6 +3,8 @@ from mchlrn.models import Sat_Q_Processed as SQP
 from mchlrn.models import Sat_Pred as SP
 from mchlrn.models import Sat_Pred_Row as SPR
 from mchlrn.models import Sat_Pred_Item as SPI
+from mchlrn.models import Answered_Sat_Q as ASQ
+from mchlrn.models import SATQuestion as SQ
 from django.contrib.auth.models import User
 import numpy
 
@@ -33,14 +35,21 @@ def choose_q(some_user): #a is a User
     avg = []
     all_rows = SPR.objects.all()
     for a_row in all_rows:
-        pred_score = SPI.objects.filter(row = a_row, col = col_num)[0]
+        pred_score = SPI.objects.get(row = a_row, col = col_num)
         pred.append(pred_score.val)
         avg_score = SQP.objects.filter(col_num = pred_score.row.row)[0].avg_score
         avg.append(avg_score)
 #take the difference AVG-PRED
     diff = []
     for i in range(0, len(pred)):
-        diff.append(pred[i] - avg[i])
+        #check if there's an answered SAT question with this user and question
+        #user=some_user_data
+        #question is the ith processed question
+        aa = ASQ.objects.filter(user=some_user_data,unanswered_q=SQP.objects.all()[i].orig_q)
+        if len(aa) > 0:#user already answered that question
+            diff.append(10)
+        else:
+            diff.append(pred[i] - avg[i])
     print diff
 #find the highest difference where the user hasn't answered the question yet
     min_index = index_min(diff)
