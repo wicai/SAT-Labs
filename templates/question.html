@@ -2,10 +2,6 @@
 
 {% block content %}
 {% autoescape off %}
-{% load staticfiles %}
-{% block extrastyle %}
-<link rel="stylesheet" type="text/css" href="{% static question.css %}">
-{% endblock %}
 
 <p><b>User:</b> {{user}}</p>
 <p><b>Category:</b> {{question.category}}</p>
