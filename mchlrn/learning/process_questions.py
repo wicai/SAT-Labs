@@ -24,5 +24,5 @@ for s in sqlist:
         print s
         numnums = countNums(s.question)
         length_question = len(s.question)
-        p = sqp.objects.create(orig_q = s, num_numbers = numnums, col_num = -1, length=length_question)
+        p = sqp.objects.create(orig_q = s, num_numbers = numnums, col_num = -1, length=length_question, avg_score=0)
 

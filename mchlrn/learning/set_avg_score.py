@@ -22,3 +22,4 @@ def set_avg():
             one_sqp.avg_score = (correct/total)
         one_sqp.save()
 
+set_avg()
