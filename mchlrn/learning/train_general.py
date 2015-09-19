@@ -3,6 +3,7 @@
 import numpy as np
 import scipy.optimize as opt
 #learning library
+import datetime
 from mchlrn.learning.cost import cost
 from mchlrn.learning.theta_gradient import gradient
 #models
@@ -20,13 +21,16 @@ from mchlrn.models import Answered_Sat_Q as ASQ
 def get_model_fields(model):
     return model._meta.fields
 
-#load the array from the databases
-def train():    
+
+def train(some_user):    
+    start = datetime.datetime.now()
+    print "1------------------1"
+    print (datetime.datetime.now() - start)
+    #load the array from the databases
     problem_list = SQP.objects.all()
     u_list = USR.objects.all()
     npr = len(problem_list)  #number of problems
     nx = len(get_model_fields(SQP)) - 4 + 1 #number of features we are considering  w the matrix + 1 for bias.
-    print "number features is {}".format(nx)
     #  -4 is for self, colnum, orig_q, avg_score
     nu = u_list.count() #num_users
     # create matrices
@@ -45,9 +49,6 @@ def train():
         p.col_num = i
         i+=1
         p.save()
-    print("problem_feature is")
-    print(prob_feature.shape)
-    print(prob_feature)
     #y, npr x  nu, and r, same dimension
     uind = 0
     for u in u_list:
@@ -56,17 +57,12 @@ def train():
         a_list = ASQ.objects.filter(user = u)
         for a in a_list:
             proc = SQP.objects.filter(orig_q = a.unanswered_q) #find the processed question that corresponds to this one
-            #len proc should always be 0 here
             y[proc[0].col_num, uind] = a.correct
             r[proc[0].col_num, uind] = 1
         uind+=1
-    print("nu is:")
-    print(nu)
-    #test that r is correct
-    print("r is:")
-    print(r)
-    print("y is:")
-    print(y)
+    print "2------------------2"
+    print (datetime.datetime.now() - start)
+
     #normalize y
     mu = np.zeros(npr).reshape(npr,1)
     for i in range(0, y.shape[0]): #for each question
@@ -86,27 +82,20 @@ def train():
         cur_prob.avg_score = mu[i][0]
         cur_prob.save()
 
-    print("mu is:")
-    print(mu.shape)
-    print(mu)
-    print (mu * r)
     y -= mu * r
-    print("now y is:")
-    print(y)
 
     #theta is already randomized and initialized
     #time to train theta
     #theta = fmin_bfgs(cost, theta, fprime=gradient, args=(theta,y,prob_feature,nu,npr,nx,r,.5))  #magically optimize theta  #TODO last term is lambda you should figure out how to not hardcode
-    print(theta.shape)
-    print(theta)
     args = (y,prob_feature,nu,npr,nx,r,.5)
-    print(len(args))
+    print "3------------------3"
+    print (datetime.datetime.now() - start)
+
     theta = opt.fmin_bfgs(cost, theta, args = args)
+    print "4------------------4"
+    print (datetime.datetime.now() - start)
 
     theta = theta.reshape(nx,nu)
-    print('theta')
-    print(theta.shape)
-    print(theta)
     
     #store theta
     if (ST.objects.all().count() != 0): #gotta remove everything that's there
@@ -123,24 +112,28 @@ def train():
             col.save()
             
     pred = np.transpose(np.dot(np.transpose(theta),prob_feature)) 
-    print("pred is")
-    print(pred.shape)
-    print(pred)
-    #npr x nu
-    #store pred
+    print "5------------------5"
+    print (datetime.datetime.now() - start)
+
     if (SP.objects.all().count() != 0): #gotta remove everything that's there
         for a in SP.objects.all():
             a.delete()
     sp = SP.objects.create() #create the new SAT_Pred
     sp.save()
+    print "6------------------6"
+    print (datetime.datetime.now() - start)
 
     for i in range(0, npr): #for each problem
-        pred_row = SPR.objects.create(row = i, matrix = sp) #create a SAT_PRED_ROW
+        pred_row = SPR.objects.create(row = i, matrix=sp) #create a SAT_PRED_ROW
         pred_row.save()
-        for ii in range(0, nu):
+        #get the index of our current user
+        user_data = USR.objects.get(user=some_user)
+        u_index = user_data.col_num
+        """for ii in range(0, nu):
             col = SPI.objects.create(col = ii, val = pred[i,ii], row = pred_row)
             col.save()
-
-
-
-
+        """
+        col = SPI.objects.create(col = u_index, val = pred[i,u_index], row = pred_row)
+        col.save()
+    print "7-----------------7"
+    print (datetime.datetime.now() - start)

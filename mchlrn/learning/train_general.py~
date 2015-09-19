@@ -3,6 +3,7 @@
 import numpy as np
 import scipy.optimize as opt
 #learning library
+from datetime import datetime
 from mchlrn.learning.cost import cost
 from mchlrn.learning.theta_gradient import gradient
 #models
@@ -125,22 +126,30 @@ def train():
     pred = np.transpose(np.dot(np.transpose(theta),prob_feature)) 
     print("pred is")
     print(pred.shape)
-    print(pred)
+    #print(pred)
     #npr x nu
     #store pred
-    if (SP.objects.all().count() != 0): #gotta remove everything that's there
-        for a in SP.objects.all():
-            a.delete()
-    sp = SP.objects.create() #create the new SAT_Pred
-    sp.save()
+    print "yolo"
+#    if (SP.objects.all().count() != 0): #gotta remove everything that's there
+#        for a in SP.objects.all():
+#            a.delete()
+#    sp = SP.objects.create() #create the new SAT_Pred
+#    sp.save()
+    print "yolo2"
+    datetime.now()
+    starttime = datetime.now()
 
     for i in range(0, npr): #for each problem
-        pred_row = SPR.objects.create(row = i, matrix = sp) #create a SAT_PRED_ROW
-        pred_row.save()
+        bbb = datetime.now()
+        ccc=bbb-starttime
+        print(ccc.total_seconds())
+        a = SP.objects.get()
+#        pred_row = SPR.objects.create(row = i, matrix = sp) #create a SAT_PRED_ROW
+        pred_row = SPR.objects.get(row=i, matrix=a)
+#        pred_row.save()
         for ii in range(0, nu):
-            col = SPI.objects.create(col = ii, val = pred[i,ii], row = pred_row)
+#            col = SPI.objects.create(col = ii, val = pred[i,ii], row = pred_row)
+            col = SPI.objects.get(col = ii, row = pred_row)
+            col.val=pred[i,ii]
             col.save()
-
-
-
-
+    print "yolo3"
