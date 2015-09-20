@@ -70,14 +70,17 @@ class Answered_Sat_Q(models.Model):
 
 #one layer theta for neural network for Jeff's spiffy new SAT question
 class Sat_Pred(models.Model):
-    #placeholder (i have no idea what this is)
     a = 5
 
 class Sat_Pred_Row(models.Model):
+    
+    #link to question
     row = models.IntegerField()
     matrix = models.ForeignKey(Sat_Pred)
 
 class Sat_Pred_Item(models.Model):
+    #link to user
+    #link to question
     row = models.ForeignKey(Sat_Pred_Row)
     col = models.IntegerField()
     val = models.FloatField()

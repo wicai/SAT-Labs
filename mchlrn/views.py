@@ -16,6 +16,9 @@ from selenium.webdriver.common.keys import Keys
 from mchlrn.models import SATQuestion
 from mchlrn.models import Answered_Sat_Q
 from mchlrn.models import UserData
+from mchlrn.models import Sat_Pred as SP
+from mchlrn.models import Sat_Pred_Row as SPR
+from mchlrn.models import Sat_Pred_Item as SPI
 from django.contrib.auth.models import User
 
 #dates
@@ -117,8 +120,13 @@ def register(request, template_name='registration/register.html',
 		if uf.is_valid():
 			new_user = User.objects.create_user(**uf.cleaned_data)
 			new_user.save()
-			userdata = UserData.objects.create(user=new_user, col_num=-1)
+			userdata = UserData.objects.create(user=new_user, col_num=len(UserData.objects.all()) )
 			userdata.save()
+			#create empty pred row
+			new_row = SPR.objects.create(row=userdata.col_num, matrix=SP.objects.get())
+			new_row.save()
+			for i in range(len(SATQuestion.objects.all())):
+				new_item = SPI.objects.create(row=new_row,col=i,val=0)
 		return HttpResponseRedirect('/')
 	else:
 		uf = UserForm()
