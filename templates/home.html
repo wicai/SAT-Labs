@@ -1,9 +1,7 @@
 {% extends "base_site.html" %}
 {% load i18n %}
 
-{% block content %}
-<div style="float:right;">
-  <div>
+{% block topright %}
     {{ user }}
     {% if user.is_authenticated %}
     <a href="/accounts/logout/"class="btn btn-primary btn-large"><i class="icon-white icon-heart"></i>Logout</a>
@@ -11,11 +9,12 @@
     <a href="/accounts/register/" class="btn btn-primary btn-large"><i class="icon-white icon-heart"></i>Register</a>
     <a href="/accounts/login/" class="btn btn-primary btn-large"><i class="icon-white icon-heart"></i>Login</a>
     {% endif %}
-  </div>
-</div>
+{% endblock %}
+
+{% block content %}
 
 <div>
-<h1>LearnIndie</h2>
+<h1>SAT Labs</h2>
 <h2>The SAT Tutoring Site that Learns from You!</h2>
 
 <h3>Tools</h3>

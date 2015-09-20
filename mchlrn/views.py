@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.http import Http404
 from django.template import RequestContext
 from django import forms
@@ -24,6 +24,9 @@ from datetime import date, timedelta
 
 #learning
 from mchlrn.learning import get_good_question
+
+#random
+import random
 
 def home(request):
 	return render_to_response('home.html',context_instance=RequestContext(request))
@@ -413,11 +416,54 @@ def get_question(request):
         if request.user.is_authenticated():
             current_user = request.user
         else:
-            #if anonymous user, use the admin account "will" for default/testing
-            current_user = User.objects.get(username="will")
+            #if anonymous user, redirect to registration
+            return redirect(register)
+        answered_qs = Answered_Sat_Q.objects.filter(user__user=current_user)
+        #if answered_qs:
+        #    return render_to_response('question.html', 
+        #    {'question': answered_qs[0].unanswered_q, 'user': current_user},
+        #    context_instance=RequestContext(request))
+        #FOR TESTING ONLY
+        if not answered_qs:
+            #diagnostic test
+            return redirect(diagnostic)
+            pass
         question = get_good_question.choose_q(current_user)
         #question = SATQuestion.objects.get(id=9)
         return render_to_response('question.html', 
             {'question': question, 'user': current_user},
             context_instance=RequestContext(request))
 
+def diagnostic(request):
+    if request.method == 'POST':
+        #submit form
+        user_id = request.POST['user']
+        current_user = User.objects.get(id=user_id)
+
+        num = request.POST['num']
+        for i in range(int(num)):
+            k = "question" + str(i)
+            question_id = request.POST[k]
+            k = "answer" + str(i)
+            answer = request.POST[k]
+            question = SATQuestion.objects.get(id=question_id)
+            aq = Answered_Sat_Q()
+            aq.unanswered_q = question
+            aq.user = UserData.objects.get(user__id=user_id)
+            if answer == question.correct_answer:
+                aq.correct = 1
+            else:
+                aq.correct = 0
+            aq.save()
+        return redirect(diagnostic_complete)
+    else:
+        current_user = request.user
+        #get questions and populate accordingly
+        rand_qs = SATQuestion.objects.order_by('?')[:20]
+        num = len(rand_qs)
+        return render_to_response('diagnostic.html',
+            {'rand_qs': rand_qs, 'user': current_user, 'num': num},
+            context_instance=RequestContext(request))
+
+def diagnostic_complete(request):
+    return render_to_response('diagnosticcomplete.html')

@@ -20,4 +20,7 @@ urlpatterns = patterns('',
     (r'^accounts/register/$', 'mchlrn.views.register'),                   
 
     (r'^mchlrn/getquestion/$', 'mchlrn.views.get_question'),
+
+    (r'^mchlrn/diagnostic/$', 'mchlrn.views.diagnostic'),
+    (r'^mchlrn/diagnostic_complete/$', 'mchlrn.views.diagnostic_complete'),
 )

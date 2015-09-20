@@ -1,0 +1,73 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+{% autoescape off %}
+
+<p><b>User:</b> {{user}}</p>
+
+<p><b>Diagnostic Test</b></p>
+<p>Hi! It seems you haven't answered enough questions for us to recommend a good question for you.</p>
+<p>Please complete ALL of the following questions and hit "Submit."</p>
+
+<br></br>
+
+<form method="POST" action="">{% csrf_token %}
+
+<input type="hidden" name="num" value="{{num}}">
+<input type="hidden" name="user" value="{{user.id}}">
+
+{% for question in rand_qs %}
+
+<input type="hidden" name="question{{forloop.counter0}}" value="{{question.id}}">
+
+<p><b>Question {{forloop.counter}}</b></p>
+<p>Question ID: {{question.id}}</p>
+
+<p><b>Category:</b> {{question.category}}</p>
+<p><b>Subcategory:</b> {{question.sub_category}}</p>
+
+<p><b>Instructions:</b> {{question.instructions}}</p>
+
+<p><b>Question:</b> {{question.question}}</p>
+
+<input type='radio' name='answer{{forloop.counter0}}' class="btn btn-primary" value='A' checked>
+&nbsp;&nbsp;
+
+<p style="display:inline-block">{{question.answer_A}}</p></li>
+</input>
+<br>
+
+<input type='radio' name='answer{{forloop.counter0}}' class="btn btn-primary" value='B'>
+&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_B}}</p></li>
+</input>
+<br>
+
+<input type='radio' name='answer{{forloop.counter0}}' class="btn btn-primary" value='C'>
+&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_C}}</p></li>
+</input>
+<br>
+
+<input type='radio' name='answer{{forloop.counter0}}' class="btn btn-primary" value='D'>
+&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_D}}</p></li>
+</input>
+<br>
+
+<input type='radio' name='answer{{forloop.counter0}}' class="btn btn-primary" value='E'>
+&nbsp;&nbsp;
+<p style="display:inline-block">{{question.answer_E}}</p></li>
+</input>
+</br>
+
+<br></br>
+{% endfor %}
+
+<input type='submit' class="btn btn-primary" value="Submit">
+
+</form>
+
+
+{% endautoescape %}
+{% endblock %}
